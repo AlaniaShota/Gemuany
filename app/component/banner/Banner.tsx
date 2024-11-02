@@ -3,7 +3,8 @@ import BannerText from './component/BannerText';
 import BannerImg from './component/BannerImg';
 import { Variants } from 'framer-motion';
 import { StaticImageData } from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname,  } from 'next/navigation';
+import { links } from '../navigation/LinkList';
 
 interface BannerProps {
     title: string,
@@ -15,21 +16,16 @@ interface BannerProps {
     styleTextTitle?:string,
     styleTextAbout?:string,
     isAboutPage?: boolean,
-    contactPageUrl?:string
-    menuPageUrl?:string
+    isContactPage?:boolean
 }
 
 const Banner: React.FC<BannerProps> = ({ title, description, aboutBtn, readMoreBtn, img, animation, styleTextTitle,  styleTextAbout }) => {
     const pathname = usePathname();
-
     const isAboutPage = pathname === '/about';
-    const isMenuPage = pathname === '/menu'
-    // const contactPageUrl = '/contact'; 
-    // const menuPageUrl = '/menu'; 
-
+    const isContactPage = links.some(item => item.link === '/contact')
     return (
           <div
-           className={`${isAboutPage ? 'mt-0' : 'my-20'} relative flex justify-between items-start w-4/5  mx-auto`}>
+           className={`${isAboutPage ? 'mt-0' : 'my-20'} relative flex justify-between items-start w-4/5 mx-auto`}>
             {isAboutPage ? (
               <div className="absolute inset-0 flex items-start justify-center w-full h-full">
                 <BannerText isAboutPage={isAboutPage} title={title} description={description} animation={animation} styleTextTitle={styleTextTitle} styleTextAbout={styleTextAbout}/>
@@ -42,6 +38,7 @@ const Banner: React.FC<BannerProps> = ({ title, description, aboutBtn, readMoreB
                     animation={animation} 
                     styleTextTitle={styleTextTitle} 
                     styleTextAbout={styleTextAbout} 
+                    isContactPage={isContactPage} 
                     // contactPageUrl={contactPageUrl}
                     // menuPageUrl={menuPageUrl}
                     />

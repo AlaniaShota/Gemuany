@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
-const links = [
+export const links = [
     { id: 1, title: 'About', link: '/about' },
     { id: 2, title: 'Menu', link: '/menu' },
     { id: 3, title: 'Blog', link: '/blog' },
@@ -23,6 +23,7 @@ const LinkList = () => {
         <div className="flex justify-around w-full">
             {links.map((item) => {
                 const isActive = pathname === item.link;
+                
                 return (
                     <motion.div
                         key={item.id}

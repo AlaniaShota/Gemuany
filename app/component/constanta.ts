@@ -16,3 +16,7 @@ export const contactBtn = 'Read more'
 export const menuTitlePage = "Gemuany's Flavor Stories"
 export const menuDescirption = 'How We Create the Perfect Burger Every Time'
 export const reviewTitle = 'Review'
+export const submit = 'Submit'
+export const email = 'Email'
+export const message = 'Message'
+export const inc = '© 2024 Gemuany Inc. All rights reserved.'

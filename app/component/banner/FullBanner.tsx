@@ -33,7 +33,7 @@ const lobster = Lobster({
     subsets: ['latin'],
   });
 
-const FullBanner:React.FC<BannerProps> = ({isMenuPage, animation, title, styleTextTitle, styleTextAbout, description, img}) => {
+const FullBanner:React.FC<BannerProps> = ({ animation, title, description, img}) => {
     const { ref, inView } = useInView({
         triggerOnce: true, 
         threshold: 1,

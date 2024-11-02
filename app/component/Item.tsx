@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { lazy } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Montserrat } from 'next/font/google';
 import { Burger } from '../store/useStore';

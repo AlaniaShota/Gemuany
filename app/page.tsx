@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import Offer from './component/Offer';
 import FullBanner from './component/banner/FullBanner';
 import useReviewStore from './store/useStoreReview';
-import Review from './component/Review';
+import Review from './component/review/Review';
 
 export default function Home() {
   const { burgers, fetchBurgers } = useBurgerStore()

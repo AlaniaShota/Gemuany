@@ -152,7 +152,7 @@ export async function GET(){
         img:'/burger/image (8).png'
         },
         {
-        id:1,
+        id:16,
         name:'Megruli Magic',
         about:'A satisfying plant-based option with a grilled mushroom patty, fresh veggies, and a herby yogurt dressing.',
         price:'10.99$',

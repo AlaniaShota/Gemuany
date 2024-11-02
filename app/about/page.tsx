@@ -6,7 +6,6 @@ import Banner from "@/app/component/banner/Banner";
 import { animation } from "./component/animation";
 
 export default function about(){
-    console.log(descriptionAboutPage, aboutTitle, '----------------------')
     const styleTextTitle = 'text-redGemuany text-[96px]'
     const styleTextAbout = 'text-whiteSecond text-[61px]'
 

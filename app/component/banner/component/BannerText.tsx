@@ -1,7 +1,7 @@
 import React from 'react';
 import { Lobster, Montserrat } from 'next/font/google';
 import { motion, Variants } from 'framer-motion'; // Import Variants
-import {Button, ReadMoreButton} from '../../Button';
+import {Button} from '../../Button';
 import { useInView } from 'react-intersection-observer';
 import arrow from '@/public/ep_right.svg'
 import Image from 'next/image';
@@ -14,10 +14,9 @@ interface BannerTextProps {
   readMoreBtn?:string
   animation: Variants; 
   isAboutPage?: boolean
+  isContactPage?:boolean
   styleTextTitle?:string,
   styleTextAbout?:string,
-  contactPageUrl?:string
-  menuPageUrl?:string
 }
 
 const lobster = Lobster({
@@ -30,13 +29,20 @@ const montserrat = Montserrat({
   subsets: ['latin'],
 });
 
-const BannerText: React.FC<BannerTextProps> = ({ title, description, aboutBtn, readMoreBtn, animation, isAboutPage, styleTextTitle, styleTextAbout, menuPageUrl, contactPageUrl }) => {
+const BannerText: React.FC<BannerTextProps> = ({ 
+  title, 
+  description, 
+  aboutBtn, 
+  readMoreBtn, 
+  animation, 
+  isAboutPage,
+  isContactPage, 
+  styleTextTitle, 
+  styleTextAbout, }) => {
   const { ref, inView } = useInView({
     triggerOnce: true, 
     threshold: 1,
   });
-  //URL have bags 
-  const linkUrl = contactPageUrl ? contactPageUrl : menuPageUrl || '/';
 
   return (
     <motion.div
@@ -50,16 +56,20 @@ const BannerText: React.FC<BannerTextProps> = ({ title, description, aboutBtn, r
     >
       <h1 className={`${lobster.className} ${styleTextTitle} `}>{title}</h1>
       <h2 className={`${montserrat.className}  ${styleTextAbout} ${isAboutPage ? 'w-2/3 text-center':'w-full'}`}>{description}</h2>
-      {aboutBtn &&(
-        <Button>
+      {aboutBtn && (
+        <Button widthStyle='w-1/2'>
           <span>{aboutBtn}</span>
         </Button> ) 
        }
-       {linkUrl&&(
-        <Link href={linkUrl} className='flex items-start justify-start text-redGemuany border-b border-black hover:border-b-red-700'>
-        {readMoreBtn} <Image  layout="intrinsic" src={arrow} alt='arrow' width={18} className='pt-1 ml-3'/>
-       </Link>)
-       }
+        {isContactPage && (
+        <motion.div  
+           whileHover={{ scale: 1.1 }} 
+           transition={{ type: 'spring', duration: 0.1, delay:0.1, stiffness: 300 }} >
+          <Link href='/contact' className='flex items-start justify-start text-redGemuany border-b border-black hover:border-b-red-700'>
+          {readMoreBtn} <Image  layout="intrinsic" src={arrow} alt='arrow' width={18} className='pt-1 ml-3'/>
+          </Link> 
+        </motion.div>
+        )}
     </motion.div>
   );
 };
