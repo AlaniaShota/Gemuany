@@ -15,7 +15,7 @@ interface ListProps {
 
 const List:React.FC<ListProps> = ({burgers}) => {
   return (
-    <div className='flex justify-center items-center w-4/5 my-5 mx-auto flex-col'>
+    <div className='flex justify-center items-center w-4/5 my-40 mx-auto flex-col'>
       <AnimatePresence>
       <motion.h1 
          initial="hidden"

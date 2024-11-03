@@ -1,24 +1,29 @@
 import { ReviewType } from '@/app/store/useStoreReview'
-import { reviewTitle } from '../constanta'
 import { Montserrat } from 'next/font/google'
 import {motion} from 'framer-motion'
 import Image from 'next/image'
-import UserReview from './component/UserReview'
+import { SetsType } from '@/app/store/useSetsStore'
 
 interface ListProps{
-    review:ReviewType[]
+  data: SetsType[] | ReviewType[];
+  title:string
+  position:string
 }
 
 const montserrat = Montserrat({
     weight:'400'
 })
 
-const Review:React.FC<ListProps> = ({review}) => {
+function isReviewType(item: SetsType | ReviewType): item is ReviewType {
+  return (item as ReviewType).name !== undefined;
+}
+
+const Review:React.FC<ListProps> = ({data, title, position}) => {
   return (
-    <div className='flex flex-col justify-between items-start w-4/5 my-20 mx-auto cursor-default'>
-      <h1 className={`${montserrat.className} text-whiteSecond text-4xl`}>{reviewTitle}</h1>
-      <div className='grid grid-cols-3 gap-x-20 my-32'>
-        {review.slice(0,3).map(item => (
+    <div className={`flex flex-col justify-between ${position} w-4/5 mt-40 mx-auto cursor-default`}>
+      <h1 className={`${montserrat.className} text-whiteSecond text-4xl`}>{title}</h1>
+      <div className='grid grid-cols-3 gap-x-20 mt-32'>
+        {data.slice(0,3).map(item => (
         <motion.div
           key={item.id}
           className="w-auto h-auto p-8 bg-item rounded-xl relative flex justify-between flex-row items-center">
@@ -40,13 +45,16 @@ const Review:React.FC<ListProps> = ({review}) => {
             className="flex flex-col justify-start flex-wrap items-start mt-14">
               <h2 className="text-xl text-whiteSecond">{item.title}</h2>
               <p className="text-sm opacity-55 text-[#FAF3E0] my-2">{item.about}</p>
-              <h2 className="text-xl text-whiteSecond">{item.name}</h2>
+              {isReviewType(item) ? (
+                  <h2 className="text-xl text-whiteSecond">{item.name}</h2>
+                ):(
+                  <h2 className='text-redGemuany'>{item.btn}</h2>
+                )}
             </motion.div>
           </div>
         </motion.div>
         ))}
       </div>
-      <UserReview/>
     </div>
   )
 }

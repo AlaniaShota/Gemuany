@@ -8,7 +8,7 @@ import { iphone, iphoneTitle, androidTitle, android, offerNumber, discount, down
 
 const Offer = () => {
   return (
-    <div className='bg-redGemuany my-40 flex flex-row justify-around items-center h-36 mt-20'>
+    <div className='bg-redGemuany my-40 flex flex-row justify-around items-center h-36'>
       <div className='flex flex-col justify-center items-center gap-3 w-32'>
         <div className='flex flex-row outline outline-offerBorder rounded-md bg-black p-1 w-full'>
             <Image  layout="intrinsic" src={appleImg} alt='iphone' width={20} height={24}/>

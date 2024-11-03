@@ -23,9 +23,9 @@ const Banner: React.FC<BannerProps> = ({ title, description, aboutBtn, readMoreB
     const pathname = usePathname();
     const isAboutPage = pathname === '/about';
     const isContactPage = links.some(item => item.link === '/contact')
+
     return (
-          <div
-           className={`${isAboutPage ? 'mt-0' : 'my-20'} relative flex justify-between items-start w-4/5 mx-auto`}>
+          <div className={`${isAboutPage ? 'mt-0' : 'my-20'} relative flex justify-between items-start w-4/5 mx-auto`}>
             {isAboutPage ? (
               <div className="absolute inset-0 flex items-start justify-center w-full h-full">
                 <BannerText isAboutPage={isAboutPage} title={title} description={description} animation={animation} styleTextTitle={styleTextTitle} styleTextAbout={styleTextAbout}/>

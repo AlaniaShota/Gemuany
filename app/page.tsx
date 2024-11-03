@@ -2,7 +2,7 @@
 import imageHomePage from '@/public/freepik-export-20241012102932k36Z 1.png'
 import imageContactPage from '@/public/pikaso_text-to-image_Candid-image-photography-natural-textures-highly-r (1) 1 (1).png'
 import imageMenuPage from '@/public/photorealistic-man-with-burger-meal 1 (1).png'
-import { titleGemuany, aboutGemuany, aboutButton, contactTitle, contactDescription, contactBtn, menuTitlePage, menuDescirption } from './component/constanta';
+import { titleGemuany, aboutGemuany, aboutButton, contactTitle, contactDescription, contactBtn, menuTitlePage, menuDescirption, reviewTitle } from './component/constanta';
 import Banner from './component/banner/Banner';
 import { visibleExit } from './animation';
 import List from './component/List';
@@ -12,6 +12,7 @@ import Offer from './component/Offer';
 import FullBanner from './component/banner/FullBanner';
 import useReviewStore from './store/useStoreReview';
 import Review from './component/review/Review';
+import UserReview from './component/review/UserReview';
 
 export default function Home() {
   const { burgers, fetchBurgers } = useBurgerStore()
@@ -26,6 +27,8 @@ export default function Home() {
   const styleTextAbout = 'text-whiteSecond text-[61px]'
   const styleContactTitle = 'text-whiteSecond text-5xl font-bold'
   const styleContactAbout = 'text-whiteSecond text-2xl font-light opacity-45'
+  const fullBannerPosition = "absolute inset-0 flex flex-col justify-around items-start w-2/6 h-full"
+  const stylePosition = 'items-start'
 
   return (
     <>
@@ -56,8 +59,10 @@ export default function Home() {
       readMoreBtn={contactBtn}
       styleTextTitle={styleContactTitle}
       styleTextAbout={styleContactAbout}
+      stylePosition={fullBannerPosition}
       />
-      <Review review={review}/>
+      <Review data={review} title={reviewTitle} position={stylePosition}/>
+      <UserReview/>
     </>
   );
 }
