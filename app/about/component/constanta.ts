@@ -1,10 +1,13 @@
-export const aboutTitle = 'Gemuany'
-export const descriptionAboutPage = 'More Than Just a Burger'
-export const aboutSectionTitle = 'About Gemuany'
-export const aboutSectionDescription = 'At Gemuany, we believe that a burger isn’t just fast food—it’s an experience. Born in the heart of Georgia and inspired by the rich culinary traditions of Megrelian cuisine, Gemuany (meaning delicious in Megrelian) brings together a love for quality ingredients, unique flavors, and a passion for unforgettable meals.'
-export const visionTitle = 'Our Vision'
-export const visionDescription = 'Our vision is simple: to be the go-to burger bar where customers feel at home and experience the taste of innovation. Whether you’re stopping in for a quick bite or staying to enjoy a meal with friends and family, we want every visit to Gemuany to be memorable.'
-export const readMoreBtn = 'Read more'
-export const setsTitle = 'What Sets Us Apart'
-export const meetTeamTitle = 'Meet the Team'
-export const meetTeamDescription = 'Behind Gemuany is a passionate team of burger lovers and food innovators. Led by Keso, we strive to create not only delicious food but also a welcoming environment where everyone feels part of our journey.'
+export const aboutTitle = "Gemuany";
+export const descriptionAboutPage = "More Than Just a Burger";
+export const aboutSectionTitle = "About Gemuany";
+export const aboutSectionDescription =
+  "At Gemuany, we believe that a burger isn’t just fast food—it’s an experience. Born in the heart of Georgia and inspired by the rich culinary traditions of Megrelian cuisine, Gemuany (meaning delicious in Megrelian) brings together a love for quality ingredients, unique flavors, and a passion for unforgettable meals.";
+export const visionTitle = "Our Vision";
+export const visionDescription =
+  "Our vision is simple: to be the go-to burger bar where customers feel at home and experience the taste of innovation. Whether you’re stopping in for a quick bite or staying to enjoy a meal with friends and family, we want every visit to Gemuany to be memorable.";
+export const readMoreBtn = "Read more";
+export const setsTitle = "What Sets Us Apart";
+export const meetTeamTitle = "Meet the Team";
+export const meetTeamDescription =
+  "Behind Gemuany is a passionate team of burger lovers and food innovators. Led by Keso, we strive to create not only delicious food but also a welcoming environment where everyone feels part of our journey.";

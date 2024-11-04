@@ -17,13 +17,12 @@ const Offer = () => {
             <h4 className='text-sm'>{iphone}</h4>
         </div>
         </div>
-        
         <div className='flex flex-row outline outline-offerBorder rounded-md bg-black p-1 w-full'>
             <Image  layout="intrinsic" src={androidImg} alt='iphone' width={20} height={24}/>
-        <div className='flex flex-col justify-center items-center text-whiteSecond pl-2'>
-            <h4 className='text-[9px]'>{androidTitle}</h4>
-            <h4 className='text-sm'>{android}</h4>
-        </div>
+          <div className='flex flex-col justify-center items-center text-whiteSecond pl-2'>
+              <h4 className='text-[9px]'>{androidTitle}</h4>
+              <h4 className='text-sm'>{android}</h4>
+          </div>
         </div>
       </div>
       <div className='flex flex-row justify-center items-center'>

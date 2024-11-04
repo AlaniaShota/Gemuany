@@ -1,11 +1,11 @@
-import {create} from 'zustand';
+import { create } from "zustand";
 
 export interface ReviewType {
-    id:number
-    name:string
-    about:string
-    title:string
-    img:string
+  id: number;
+  name: string;
+  about: string;
+  title: string;
+  img: string;
 }
 export interface ReviewStore {
   review: ReviewType[];
@@ -18,7 +18,7 @@ const useReviewStore = create<ReviewStore>((set) => ({
     const response = await fetch(url);
     const data = await response.json();
     set({ review: data });
-  }
+  },
 }));
 
 export default useReviewStore;

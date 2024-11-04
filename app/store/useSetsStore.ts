@@ -7,6 +7,7 @@ export interface SetsType {
     img:string;
     btn:string;
 }
+
 export interface SetsStore {
   sets: SetsType[];
   fetchSets: (url: string) => Promise<void>;

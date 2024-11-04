@@ -51,7 +51,7 @@ const LinkList = () => {
         <div className='flex flex-row items-center gap-4'>
             {linkIcon.map(item => (
                 <Link key={item.id} href={item.link} target='_blank' className='w-6 h-6'>
-                    <Image src={item.img} layout="intrinsic" alt='Link' className='object-cover w-full h-full'/>
+                <Image src={item.img} layout="intrinsic" alt='Link' className='object-cover w-full h-full'/>
                 </Link>
             ))}
         </div>
