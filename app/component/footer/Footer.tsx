@@ -10,6 +10,7 @@ const montserrat = Montserrat({ weight: "400" });
 const Footer = () => {
   return (
     <div className="flex flex-col justify-around items-start w-4/5 mx-auto mt-20">
+      <div className="w-full mb-4 border border-b-blackGray"/>
       <h1 className={`${lobster.className} text-redGemuany text-5xl`}>
         {titleGemuany}
       </h1>

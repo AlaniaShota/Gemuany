@@ -13,7 +13,7 @@ const BannerImg: React.FC<BannerImgProps> = ({ img }) => {
       <Image
         src={img}
         alt="Germany"
-        layout="responsive"
+         layout="intrinsic"
         className="w-full h-full object-contain"
       />
     </div>

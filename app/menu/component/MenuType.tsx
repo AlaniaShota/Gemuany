@@ -26,18 +26,23 @@ const MenuType = () => {
           key={item.id}
           className="flex flex-col justify-center items-center gap-4"
         >
-          <div className={`${item.have ? 'bg-white':'bg-darkBlue'} w-auto h-auto p-5  rounded-full flex items-center justify-center`}>
+          <div
+            className={`${
+              item.have ? "bg-white" : "bg-darkBlue"
+            } w-auto h-auto p-5  rounded-full flex items-center justify-center`}
+          >
             <Image
-                src={item.img}
-                alt={item.name}
-                className="w-full h-full object-cover"
+              src={item.img}
+              alt={item.name}
+              className="w-full h-full object-cover"
+              layout="intrinsic"
             />
           </div>
           <h3 className={`${montserrat.className} text-whiteSecond`}>
             {item.name}
           </h3>
           <div>
-            <Image src={item.have ? imgGreenLine : imgRedLine} alt="line" />
+            <Image src={item.have ? imgGreenLine : imgRedLine} alt="line"  layout="intrinsic"/>
           </div>
         </div>
       ))}

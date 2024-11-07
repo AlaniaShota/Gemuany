@@ -23,6 +23,7 @@ import Offer from "./component/Offer";
 import FullBanner from "./component/banner/FullBanner";
 import useReviewStore from "./store/useStoreReview";
 import UserReview from "./component/UserReview";
+import MenuLinkBtn from "./component/navigation/MenuLinkBtn";
 
 export default function Home() {
   const { burgers, fetchBurgers } = useBurgerStore();
@@ -41,6 +42,8 @@ export default function Home() {
     "absolute inset-0 flex flex-col justify-around items-start w-2/6 h-full";
   const stylePositionMenu = "items-center";
   const stylePositionReview = "items-start";
+  const srcContact = '/contact'
+  const srcMenu = '/menu'
 
   return (
     <>
@@ -58,6 +61,7 @@ export default function Home() {
         title={menuTitle}
         titlePosition={stylePositionMenu}
       />
+      <MenuLinkBtn/>
       <Offer />
       <Banner
         animation={visibleExit}
@@ -67,6 +71,7 @@ export default function Home() {
         readMoreBtn={contactBtn}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
+        src={srcContact}
       />
       <FullBanner
         animation={visibleExit}
@@ -77,6 +82,7 @@ export default function Home() {
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
         stylePosition={fullBannerPosition}
+        src={srcMenu}
       />
       <List
         review={review}

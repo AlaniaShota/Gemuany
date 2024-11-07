@@ -12,7 +12,7 @@ const UserReview = () => (
       type="text"
       id="input1"
       placeholder="Value"
-      className="py-3 px-4 rounded-lg w-1/5 disabled:opacity-65"
+      className="py-3 px-4 rounded-lg w-1/6 disabled:opacity-65"
     />
     <label htmlFor="input2" className="text-whiteSecond">
       {message}
@@ -21,9 +21,9 @@ const UserReview = () => (
       type="text"
       id="input2"
       placeholder="Value"
-      className="py-3 px-4 rounded-lg w-1/3 disabled:opacity-65"
+      className="py-3 px-4 rounded-lg w-1/4 disabled:opacity-65"
     />
-    <Button widthStyle="w-1/3">
+    <Button widthStyle="w-1/4">
       <span>{submit}</span>
     </Button>
   </div>

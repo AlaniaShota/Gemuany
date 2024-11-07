@@ -1,4 +1,5 @@
 "use client"
+
 import { Montserrat } from "next/font/google";
 import { menuTitle } from "./component/constanta";
 import Slider from "./component/Slider";
@@ -15,13 +16,10 @@ export default function Menu() {
   const pathname = usePathname();
 
   const isMenuPage = pathname === '/menu'
-
-  console.log(isMenuPage, 'HEEEEEEEE');
   
-
   useEffect(() => {
     fetchBurgers("api/burgerData");
-  }, [fetchBurgers, ]);
+  }, [fetchBurgers]);
 
   return (
     <>
@@ -30,7 +28,7 @@ export default function Menu() {
       </div>
       <Slider />
       <MenuType />
-      <List burgers={burgers}/>
+      <List burgers={burgers} menuPage={isMenuPage}/>
     </>
   );
 }

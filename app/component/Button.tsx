@@ -14,11 +14,3 @@ export const Button: React.FC<ButtonProps> = ({ children, widthStyle }) => {
     </button>
   );
 };
-
-export const ReadMoreButton: React.FC<ButtonProps> = ({ children }) => {
-  return (
-    <button className="bg-black hover:border-b-redGemuany text-redGemuany ease-in-out duration-300 w-auto flex flex-row justify-center items-center">
-      {children}
-    </button>
-  );
-};

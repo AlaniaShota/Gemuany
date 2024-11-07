@@ -17,17 +17,18 @@ interface BannerProps {
   styleTextAbout?: string;
   isAboutPage?: boolean;
   isContactPage?: boolean;
+  src?:string
 }
 
 const Banner: React.FC<BannerProps> = ({
   title,
   description,
   aboutBtn,
-  readMoreBtn,
   img,
   animation,
   styleTextTitle,
   styleTextAbout,
+  src
 }) => {
   const pathname = usePathname();
   const isAboutPage = pathname === "/about";
@@ -55,13 +56,11 @@ const Banner: React.FC<BannerProps> = ({
           title={title}
           description={description}
           aboutBtn={aboutBtn}
-          readMoreBtn={readMoreBtn}
           animation={animation}
           styleTextTitle={styleTextTitle}
           styleTextAbout={styleTextAbout}
           isContactPage={isContactPage}
-          // contactPageUrl={contactPageUrl}
-          // menuPageUrl={menuPageUrl}
+          src={src}
         />
       )}
       <BannerImg img={img} animation={animation} />

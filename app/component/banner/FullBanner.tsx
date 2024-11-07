@@ -4,10 +4,9 @@ import { useInView } from "react-intersection-observer";
 import { Variants, motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { Lobster, Montserrat } from "next/font/google";
-import Link from "next/link";
-import arrow from "@/public/ep_right.svg";
 import { contactBtn } from "../constanta";
 import { usePathname } from "next/navigation";
+import { ReadMore } from "../navigation/ButtonLinks";
 
 interface BannerProps {
   title: string;
@@ -24,6 +23,7 @@ interface BannerProps {
   menuPageUrl?: string;
   stylePosition?: string;
   contentAboutSectionPosition?: string;
+  src?:string
 }
 
 const lobster = Lobster({
@@ -43,6 +43,7 @@ const FullBanner: React.FC<BannerProps> = ({
   stylePosition,
   contentAboutSectionPosition,
   img,
+  src
 }) => {
   const pathname = usePathname();
   const { ref, inView } = useInView({
@@ -92,29 +93,7 @@ const FullBanner: React.FC<BannerProps> = ({
         >
           {description}
         </p>
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          transition={{
-            type: "spring",
-            duration: 0.1,
-            delay: 0.1,
-            stiffness: 300,
-          }}
-        >
-          <Link
-            href="/menu"
-            className="flex items-start justify-start text-redGemuany border-b border-black hover:border-b-red-700"
-          >
-            {contactBtn}{" "}
-            <Image
-              layout="intrinsic"
-              src={arrow}
-              alt="arrow"
-              width={18}
-              className="pt-1 ml-3"
-            />
-          </Link>
-        </motion.div>
+        <ReadMore src={src} readMoreBtn={contactBtn}/>
       </motion.div>
       {isAboutPage && (
         <div

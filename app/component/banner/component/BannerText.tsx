@@ -3,20 +3,19 @@ import { Lobster, Montserrat } from "next/font/google";
 import { motion, Variants } from "framer-motion"; // Import Variants
 import { Button } from "../../Button";
 import { useInView } from "react-intersection-observer";
-import arrow from "@/public/ep_right.svg";
-import Image from "next/image";
-import Link from "next/link";
+import { ReadMore } from "../../navigation/ButtonLinks";
+import { readMoreBtn } from "@/app/about/component/constanta";
 
 interface BannerTextProps {
   title: string;
   description: string;
   aboutBtn?: string;
-  readMoreBtn?: string;
   animation: Variants;
   isAboutPage?: boolean;
   isContactPage?: boolean;
   styleTextTitle?: string;
   styleTextAbout?: string;
+  src?:string
 }
 
 const lobster = Lobster({
@@ -33,12 +32,11 @@ const BannerText: React.FC<BannerTextProps> = ({
   title,
   description,
   aboutBtn,
-  readMoreBtn,
   animation,
   isAboutPage,
-  isContactPage,
   styleTextTitle,
   styleTextAbout,
+  src
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -72,31 +70,7 @@ const BannerText: React.FC<BannerTextProps> = ({
           <span>{aboutBtn}</span>
         </Button>
       )}
-      {isContactPage && (
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          transition={{
-            type: "spring",
-            duration: 0.1,
-            delay: 0.1,
-            stiffness: 300,
-          }}
-        >
-          <Link
-            href="/contact"
-            className="flex items-start justify-start text-redGemuany border-b border-black hover:border-b-red-700"
-          >
-            {readMoreBtn}{" "}
-            <Image
-              layout="intrinsic"
-              src={arrow}
-              alt="arrow"
-              width={18}
-              className="pt-1 ml-3"
-            />
-          </Link>
-        </motion.div>
-      )}
+       {src && <ReadMore src={src} readMoreBtn={readMoreBtn} />}
     </motion.div>
   );
 };

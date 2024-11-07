@@ -18,7 +18,7 @@ const config: Config = {
         redHoverGemuany: "#F63E55",
         whiteSecond: "#FAF3E0",
         item: "#22222A",
-        priceUnic: "#2E2E2E",
+        blackGray: "#2E2E2E",
         offerBorder: "#A6A6A6",
         darkBlue: "#22222A",
       },

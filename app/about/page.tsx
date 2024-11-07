@@ -22,8 +22,8 @@ import FullBanner from "../component/banner/FullBanner";
 import { visibleExit } from "../animation";
 import { useEffect } from "react";
 import useSetsStore from "../store/useSetsStore";
-// import Review from '../component/review/Review';
 import List from "../component/List";
+import MenuLinkBtn from "../component/navigation/MenuLinkBtn";
 
 export default function About() {
   const { sets, fetchSets } = useSetsStore();
@@ -41,6 +41,7 @@ export default function About() {
     "absolute inset-0 flex flex-col justify-around items-start w-3/6 h-full z-50";
   const contentAboutSectionPosition =
     "flex flex-col justify-around items-start w-4/6";
+  const src = '/menu'
 
   return (
     <>
@@ -61,8 +62,10 @@ export default function About() {
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
         contentAboutSectionPosition={contentAboutSectionPosition}
+        src={src}
       />
       <List sets={sets} title={setsTitle} titlePosition={stylePositionMenu} />
+      <MenuLinkBtn/>
       <FullBanner
         img={visionImg}
         title={visionTitle}
@@ -73,6 +76,7 @@ export default function About() {
         styleTextAbout={styleContactAbout}
         contentAboutSectionPosition={contentAboutSectionPosition}
         stylePosition={fullBannerPosition}
+        src={src}
       />
       <FullBanner
         img={meetTeamImg}
@@ -84,6 +88,7 @@ export default function About() {
         styleTextAbout={styleContactAbout}
         contentAboutSectionPosition={contentAboutSectionPosition}
         stylePosition={fullBannerPosition}
+        src={src}
       />
     </>
   );
