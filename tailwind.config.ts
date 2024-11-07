@@ -20,6 +20,7 @@ const config: Config = {
         item: "#22222A",
         priceUnic: "#2E2E2E",
         offerBorder: "#A6A6A6",
+        darkBlue: "#22222A",
       },
       backgroundColor: {
         redGemuany: "#F83E55",

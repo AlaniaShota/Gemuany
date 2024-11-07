@@ -15,8 +15,9 @@ interface ListProps {
   burgers?: Burger[];
   sets?: SetsType[];
   review?: ReviewType[];
-  title: string;
-  titlePosition: string;
+  title?: string;
+  titlePosition?: string;
+  menuPage?:string
 }
 
 const List: React.FC<ListProps> = ({
@@ -25,6 +26,7 @@ const List: React.FC<ListProps> = ({
   review,
   titlePosition,
   title,
+  menuPage
 }) => {
   const data = burgers || sets || review || [];
   return (
@@ -48,6 +50,25 @@ const List: React.FC<ListProps> = ({
           {title}
         </motion.h1>
         <Card burgerData={data} />
+        {/* {menuPage ? <>Hello</>:<motion.div
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={exitVisit}
+            transition={{
+              type: "spring",
+              duration: 0.4,
+              delay: 2,
+              stiffness: 300,
+            }}
+          >
+            <Link
+              href="/menu/"
+              className="inline-flex justify-center items-center rounded-xl py-3 px-8 bg-redGemuany hover:bg-buttonActive ease-in-out duration-300"
+            >
+              <span className="text-whiteSecond">Menu</span>
+            </Link>
+          </motion.div>} */}
         {!review && (
           <motion.div
             initial="hidden"
