@@ -14,7 +14,7 @@ interface BannerProps {
   aboutBtn?: string;
   readMoreBtn?: string;
   img: string | StaticImageData;
-  animation: Variants;
+  animation?: Variants;
   styleTextTitle?: string;
   styleTextAbout?: string;
   isAboutPage?: boolean;
@@ -63,7 +63,7 @@ const FullBanner: React.FC<BannerProps> = ({
             src={img}
             alt="Banner Image"
             layout="intrinsic"
-            className={`w-full h-full object-cover rounded-xl`}
+            className={`w-full h-full object-contain rounded-xl`}
           />
         </div>
       )}
@@ -95,7 +95,7 @@ const FullBanner: React.FC<BannerProps> = ({
         </p>
         <ReadMore src={src} readMoreBtn={contactBtn}/>
       </motion.div>
-      {isAboutPage && (
+      {isAboutPage  && (
         <div
           className={`w-full h-full bg-black bg-opacity-50 relative rounded-xl`}
         >
@@ -103,7 +103,7 @@ const FullBanner: React.FC<BannerProps> = ({
             src={img}
             alt="Banner Image"
             layout="intrinsic"
-            className={`w-full h-full object-cover rounded-xl`}
+            className={`w-full h-full object-contain rounded-xl`}
           />
         </div>
       )}

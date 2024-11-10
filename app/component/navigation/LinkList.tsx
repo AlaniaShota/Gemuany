@@ -13,7 +13,6 @@ export const links = [
 
 const montserrat = Montserrat({
   weight: "600",
-  // subsets: ['latin'],
 });
 
 const LinkList = () => {

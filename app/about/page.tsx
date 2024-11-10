@@ -17,9 +17,8 @@ import {
 } from "./component/constanta";
 import aboutImg from "@/public/freepik-export-20241012102932k36Z 1 (2).png";
 import Banner from "@/app/component/banner/Banner";
-import { animation } from "./component/animation";
 import FullBanner from "../component/banner/FullBanner";
-import { visibleExit } from "../animation";
+import { animationUpDown, visibleExit } from "../animation";
 import { useEffect } from "react";
 import useSetsStore from "../store/useSetsStore";
 import List from "../component/List";
@@ -49,7 +48,7 @@ export default function About() {
         title={aboutTitle}
         description={descriptionAboutPage}
         img={aboutImg}
-        animation={animation}
+        animation={animationUpDown}
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
       />

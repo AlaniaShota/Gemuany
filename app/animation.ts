@@ -26,3 +26,9 @@ export const hover = {
   translateZ: 150,
   translateX: -1,
 };
+
+export const animationUpDown = {
+  hidden: { opacity: 0, y: -100 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 100 },
+};

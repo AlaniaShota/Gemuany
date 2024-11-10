@@ -1,4 +1,5 @@
 "use client";
+
 import BannerText from "./component/BannerText";
 import BannerImg from "./component/BannerImg";
 import { Variants } from "framer-motion";
@@ -12,11 +13,12 @@ interface BannerProps {
   aboutBtn?: string;
   readMoreBtn?: string;
   img: string | StaticImageData;
-  animation: Variants;
+  animation?: Variants;
   styleTextTitle?: string;
   styleTextAbout?: string;
   isAboutPage?: boolean;
   isContactPage?: boolean;
+  isBlogPage?:boolean
   src?:string
 }
 
@@ -32,23 +34,26 @@ const Banner: React.FC<BannerProps> = ({
 }) => {
   const pathname = usePathname();
   const isAboutPage = pathname === "/about";
+  const isBlogPage = pathname === "/blog";
   const isContactPage = links.some((item) => item.link === "/contact");
 
   return (
     <div
       className={`${
-        isAboutPage ? "mt-0" : "my-20"
+        isAboutPage || isBlogPage ? "mt-0" : "my-20"
       } relative flex justify-between items-start w-4/5 mx-auto`}
     >
-      {isAboutPage ? (
+      {isAboutPage || isBlogPage ? (
         <div className="absolute inset-0 flex items-start justify-center w-full h-full">
           <BannerText
             isAboutPage={isAboutPage}
+            isBlogPage={isBlogPage}
             title={title}
             description={description}
             animation={animation}
             styleTextTitle={styleTextTitle}
             styleTextAbout={styleTextAbout}
+            src={src}
           />
         </div>
       ) : (

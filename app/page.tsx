@@ -10,7 +10,7 @@ import {
   contactDescription,
   contactBtn,
   menuTitlePage,
-  menuDescirption,
+  menuDescription,
   reviewTitle,
   menuTitle,
 } from "./component/constanta";
@@ -77,8 +77,7 @@ export default function Home() {
         animation={visibleExit}
         img={imageMenuPage}
         title={menuTitlePage}
-        description={menuDescirption}
-        readMoreBtn={contactBtn}
+        description={menuDescription}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
         stylePosition={fullBannerPosition}

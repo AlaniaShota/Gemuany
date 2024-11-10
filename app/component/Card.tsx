@@ -29,7 +29,7 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
     <motion.div
       key={data.id}
       className="w-full p-6 bg-item rounded-lg relative flex justify-center flex-col items-center"
-      variants={itemVariants[data.id]}
+      variants={itemVariants[data.id - 1]}
       initial="initial"
       animate="animate"
       exit="exit"
@@ -127,7 +127,7 @@ const Card: React.FC<ItemProps> = ({ burgerData, menuPage }) => {
 
   return (
     <div className={`${montserrat.className} w-full h-full mt-44 mb-10 text-whiteSecond rounded-lg shadow-lg relative grid grid-cols-3 gap-y-40 gap-x-20`}>
-      {data.map((item) =>
+      {data.map((item,) =>
         "price" in item ? (
           <BurgerCard key={item.id} data={item as Burger} />
         ) : (

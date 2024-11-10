@@ -15,7 +15,7 @@ export const contactDescription =
   "We love hearing from you! Whether you have a question about our menu, feedback, or just want to say hello, feel free to reach out.";
 export const contactBtn = "Read more";
 export const menuTitlePage = "Gemuany's Flavor Stories";
-export const menuDescirption = "How We Create the Perfect Burger Every Time";
+export const menuDescription = "How We Create the Perfect Burger Every Time";
 export const reviewTitle = "Review";
 export const submit = "Submit";
 export const email = "Email";

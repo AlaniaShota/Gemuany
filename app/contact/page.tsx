@@ -7,6 +7,7 @@ import { contactDescription, contactTitle } from "../component/constanta";
 import ContactBanner from "./component/ContactBanner";
 import OrderBanner from "./component/OrderBanner";
 
+
 export default function Contact() {
   const styleContactTitle = "text-whiteSecond text-5xl font-bold";
   const styleContactAbout = "text-whiteSecond text-2xl font-light opacity-45";

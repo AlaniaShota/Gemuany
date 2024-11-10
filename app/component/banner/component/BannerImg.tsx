@@ -9,12 +9,12 @@ interface BannerImgProps {
 
 const BannerImg: React.FC<BannerImgProps> = ({ img }) => {
   return (
-    <div className="w-full h-full bg-black bg-opacity-50 relative">
+    <div className="w-full h-full  bg-black bg-opacity-45 relative">
       <Image
         src={img}
         alt="Germany"
          layout="intrinsic"
-        className="w-full h-full object-contain"
+        className="w-full h-full  bg-black bg-opacity-45 object-contain rounded-xl"
       />
     </div>
   );

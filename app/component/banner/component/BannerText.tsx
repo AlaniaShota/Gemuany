@@ -10,12 +10,13 @@ interface BannerTextProps {
   title: string;
   description: string;
   aboutBtn?: string;
-  animation: Variants;
+  animation?: Variants;
   isAboutPage?: boolean;
   isContactPage?: boolean;
+  isBlogPage?: boolean;
   styleTextTitle?: string;
   styleTextAbout?: string;
-  src?:string
+  src?: string;
 }
 
 const lobster = Lobster({
@@ -24,7 +25,7 @@ const lobster = Lobster({
 });
 
 const montserrat = Montserrat({
-  weight: "700",
+  weight: ["700", "400"],
   subsets: ["latin"],
 });
 
@@ -34,9 +35,10 @@ const BannerText: React.FC<BannerTextProps> = ({
   aboutBtn,
   animation,
   isAboutPage,
+  isBlogPage,
   styleTextTitle,
   styleTextAbout,
-  src
+  src,
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -49,18 +51,21 @@ const BannerText: React.FC<BannerTextProps> = ({
       animate={inView ? "visible" : "hidden"}
       exit="exit"
       variants={animation}
+      custom={description.length}
       ref={ref}
       transition={{ type: "spring", duration: 0.4, delay: 0.1, stiffness: 300 }}
       className={`flex flex-col ${
         isAboutPage
-          ? "justify-center items-center mt-40 bg-gray-50-red z-40"
+          ? "justify-center items-center mt-40 z-40"
+          : isBlogPage
+          ? "justify-evenly w-1/2 h-full items-center text-center z-40"
           : "justify-around items-start w-full h-[393px]"
       }`}
     >
       <h1 className={`${lobster.className} ${styleTextTitle} `}>{title}</h1>
       <h2
         className={`${montserrat.className}  ${styleTextAbout} ${
-          isAboutPage ? "w-2/3 text-center" : "w-full"
+          isAboutPage || isBlogPage ? "w-2/3 text-center" : "w-full"
         }`}
       >
         {description}
@@ -70,7 +75,7 @@ const BannerText: React.FC<BannerTextProps> = ({
           <span>{aboutBtn}</span>
         </Button>
       )}
-       {src && <ReadMore src={src} readMoreBtn={readMoreBtn} />}
+      {src && <ReadMore src={src} readMoreBtn={readMoreBtn} />}
     </motion.div>
   );
 };
