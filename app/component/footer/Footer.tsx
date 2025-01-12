@@ -4,8 +4,14 @@ import { inc, titleGemuany } from "../constanta";
 import { Lobster, Montserrat } from "next/font/google";
 import LinkList from "./component/LinkList";
 
-const lobster = Lobster({ weight: "400" });
-const montserrat = Montserrat({ weight: "400" });
+const lobster = Lobster({ weight: "400", subsets: ["latin"],
+  preload: false,
+   });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  preload: false,
+  weight:'400'
+});
 
 const Footer = () => {
   return (

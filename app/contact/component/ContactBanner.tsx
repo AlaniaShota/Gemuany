@@ -21,7 +21,9 @@ import {
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
-  weight: "700",
+  subsets: ["latin"],
+  preload: false,
+  weight:"700"
 });
 
 const leftData = [

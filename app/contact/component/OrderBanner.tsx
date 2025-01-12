@@ -12,7 +12,10 @@ import { Montserrat } from "next/font/google";
 import { ReadMore } from "@/app/component/navigation/ButtonLinks";
 import { readMoreBtn } from "@/app/about/component/constanta";
 
-const montserrat = Montserrat();
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  preload: false,
+});
 
 interface BannerProps{
     src?:string

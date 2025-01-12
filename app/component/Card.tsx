@@ -6,14 +6,16 @@ import Image from "next/image";
 import { hover, itemVariants, transactionAnimate } from "../animation";
 import { SetsType } from "../store/useSetsStore";
 import { ReviewType } from "../store/useStoreReview";
-import arrowShowMore from '@/public/mingcute_right-fill.svg'
+import arrowShowMore from "@/public/mingcute_right-fill.svg";
+
 const montserrat = Montserrat({
-  weight: "700",
+  subsets: ["latin"],
+  preload: false,
 });
 
 interface ItemProps {
   burgerData: Burger[] | SetsType[] | ReviewType[];
-  menuPage?:boolean
+  menuPage?: boolean;
 }
 
 interface BurgerCardProps {
@@ -122,29 +124,35 @@ const ReviewOrSetsCard: React.FC<ReviewOrSetsCardProps> = ({ data }) => {
 
 const Card: React.FC<ItemProps> = ({ burgerData, menuPage }) => {
   const [showAll, setShowAll] = useState(false);
-  const itemsToShow = menuPage && showAll ? burgerData.length : menuPage ? 6 : 3;
+  const itemsToShow =
+    menuPage && showAll ? burgerData.length : menuPage ? 6 : 3;
   const data = burgerData.slice(0, itemsToShow);
 
   return (
-    <div className={`${montserrat.className} w-full h-full mt-44 mb-10 text-whiteSecond rounded-lg shadow-lg relative grid grid-cols-3 gap-y-40 gap-x-20`}>
-      {data.map((item,) =>
+    <div
+      className={`${montserrat.className} w-full h-full mt-44 mb-10 text-whiteSecond rounded-lg shadow-lg relative grid grid-cols-3 gap-y-40 gap-x-20`}
+    >
+      {data.map((item) =>
         "price" in item ? (
           <BurgerCard key={item.id} data={item as Burger} />
         ) : (
-          <ReviewOrSetsCard key={item.id} data={item as SetsType | ReviewType} />
+          <ReviewOrSetsCard
+            key={item.id}
+            data={item as SetsType | ReviewType}
+          />
         )
       )}
       {menuPage && !showAll && (
-       <button
-       onClick={() => setShowAll(true)}
-       className="col-start-2 mx-auto flex justify-center items-center w-10 h-10 bg-[#75C644] text-white rounded-full"
-     >
-       <Image
-         src={arrowShowMore}
-         alt="arrow"
-         className="w-6 h-6 object-cover"
-       />
-     </button>
+        <button
+          onClick={() => setShowAll(true)}
+          className="col-start-2 mx-auto flex justify-center items-center w-10 h-10 bg-[#75C644] text-white rounded-full"
+        >
+          <Image
+            src={arrowShowMore}
+            alt="arrow"
+            className="w-6 h-6 object-cover"
+          />
+        </button>
       )}
     </div>
   );

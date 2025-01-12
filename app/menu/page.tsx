@@ -9,7 +9,11 @@ import useBurgerStore from "../store/useStore";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const montserrat = Montserrat({weight:'700'})
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  preload: false,
+  weight:'700'
+});
 
 export default function Menu() {
   const { burgers, fetchBurgers } = useBurgerStore();

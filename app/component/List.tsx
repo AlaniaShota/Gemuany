@@ -8,7 +8,10 @@ import Card from "./Card";
 import { SetsType } from "../store/useSetsStore";
 import { ReviewType } from "../store/useStoreReview";
 
-const montserrat = Montserrat();
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  preload: false,
+})
 
 interface ListProps {
   burgers?: Burger[];

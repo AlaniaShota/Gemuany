@@ -16,7 +16,11 @@ const menu = [
   { id: 4, name: "Desserts", img: imgDesserts, have: false },
 ];
 
-const montserrat = Montserrat({ weight: "400" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  preload: false,
+  weight:'700'
+});
 
 const MenuType = () => {
   return (

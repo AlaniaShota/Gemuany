@@ -3,10 +3,7 @@ import LinkList from "./LinkList";
 import Link from "next/link";
 import { Lobster } from "next/font/google";
 
-const lobster = Lobster({
-  weight: "400",
-  subsets: ["latin"],
-});
+const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
 
 const Navigation = () => {
   return (

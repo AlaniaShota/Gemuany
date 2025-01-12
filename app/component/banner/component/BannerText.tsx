@@ -19,14 +19,11 @@ interface BannerTextProps {
   src?: string;
 }
 
-const lobster = Lobster({
-  weight: "400",
-  subsets: ["latin"],
-});
+const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
 
 const montserrat = Montserrat({
-  weight: ["700", "400"],
   subsets: ["latin"],
+  preload: false,
 });
 
 const BannerText: React.FC<BannerTextProps> = ({

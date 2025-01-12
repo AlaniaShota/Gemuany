@@ -26,14 +26,11 @@ interface BannerProps {
   src?:string
 }
 
-const lobster = Lobster({
-  weight: "400",
-  subsets: ["latin"],
-});
+const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
 
 const montserrat = Montserrat({
-  weight: "700",
   subsets: ["latin"],
+  preload: false,
 });
 
 const FullBanner: React.FC<BannerProps> = ({
