@@ -33,7 +33,7 @@ const linkIcon = [
 const LinkList = () => {
   return (
     <div className='flex flex-col w-full my-10'>
-        <div className='flex flex-row justify-between items-center w-full my-4'>
+        <div className='flex lg:flex-row max-sm:flex-col lg:justify-between max-sm:justify-center items-center w-full my-4'>
         <div className='flex flex-row items-start gap-4'>
             {linkUrl.map(item => (
             <div key={item.id} className='flex flex-row items-start gap-4'>
@@ -41,14 +41,14 @@ const LinkList = () => {
                     <motion.h3
                         whileHover={{ scale: 1.1 }} 
                         transition={{ type: 'spring', duration: 0.1, delay:0.1, stiffness: 300 }} 
-                        className='border-b text-whiteSecond text-lg font-semibold'>
+                        className='border-b text-whiteSecond lg:text-lg max-sm:text-sm font-semibold'>
                             {item.title}
                         </motion.h3>
                 </Link>
             </div>
             ))}
         </div>
-        <div className='flex flex-row items-center gap-4'>
+        <div className='flex flex-row items-center gap-4 mt-0 max-sm:mt-4'>
             {linkIcon.map(item => (
                 <Link key={item.id} href={item.link} target='_blank' className='w-6 h-6'>
                 <Image src={item.img} layout="intrinsic" alt='Link' className='object-cover w-full h-full'/>
@@ -62,7 +62,7 @@ const LinkList = () => {
                 key={item.id}
                 whileHover={{ scale: 1.1 }} 
                 transition={{ type: 'spring', duration: 0.1, delay:0.1, stiffness: 300 }} 
-                className='border-b text-whiteSecond hover:opacity-75 cursor-wait'>
+                className='border-b text-whiteSecond hover:opacity-75 lg:text-lg max-sm:text-sm cursor-wait'>
                     {item.title}
                 </motion.h3>
             ))}

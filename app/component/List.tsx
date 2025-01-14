@@ -11,7 +11,7 @@ import { ReviewType } from "../store/useStoreReview";
 const montserrat = Montserrat({
   subsets: ["latin"],
   preload: false,
-})
+});
 
 interface ListProps {
   burgers?: Burger[];
@@ -19,7 +19,7 @@ interface ListProps {
   review?: ReviewType[];
   title?: string;
   titlePosition?: string;
-  menuPage?:boolean
+  menuPage?: boolean;
 }
 
 const List: React.FC<ListProps> = ({
@@ -28,12 +28,12 @@ const List: React.FC<ListProps> = ({
   review,
   titlePosition,
   title,
-  menuPage
+  menuPage,
 }) => {
   const data = burgers || sets || review || [];
   return (
     <div
-      className={`flex justify-center ${titlePosition} w-4/5 mt-10 mx-auto flex-col`}
+      className={`flex justify-center ${titlePosition} lg:w-4/5 max-sm:w-11/12 mt-10 mx-auto flex-col`}
     >
       <AnimatePresence>
         <motion.h1
@@ -47,11 +47,11 @@ const List: React.FC<ListProps> = ({
             delay: 0.1,
             stiffness: 300,
           }}
-          className={`${montserrat.className} text-whiteSecond text-4xl font-semibold`}
+          className={`${montserrat.className} text-whiteSecond lg:text-4xl max-sm:text-2xl font-semibold`}
         >
           {title}
         </motion.h1>
-        <Card burgerData={data} menuPage={menuPage}/>
+          <Card burgerData={data} menuPage={menuPage} />
       </AnimatePresence>
     </div>
   );

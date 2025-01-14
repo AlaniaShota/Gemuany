@@ -7,9 +7,9 @@ const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
 
 const Navigation = () => {
   return (
-    <header className="flex flex-row justify-around items-center w-4/5 my-5 mx-auto">
+    <header className="flex flex-row justify-around items-center max-sm:w-11/12 md:w-4/5 max-sm:my-2 md:my-5 mx-auto z-50">
       <Link href="/">
-        <h1 className={`${lobster.className} text-redGemuany text-[64px]`}>
+        <h1 className={`${lobster.className} text-redGemuany md:text-[64px] max-sm:text-3xl`}>
           Gemuany
         </h1>
       </Link>

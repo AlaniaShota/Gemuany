@@ -18,8 +18,8 @@ interface BannerProps {
   styleTextAbout?: string;
   isAboutPage?: boolean;
   isContactPage?: boolean;
-  isBlogPage?:boolean
-  src?:string
+  isBlogPage?: boolean;
+  src?: string;
 }
 
 const Banner: React.FC<BannerProps> = ({
@@ -30,7 +30,7 @@ const Banner: React.FC<BannerProps> = ({
   animation,
   styleTextTitle,
   styleTextAbout,
-  src
+  src,
 }) => {
   const pathname = usePathname();
   const isAboutPage = pathname === "/about";
@@ -40,11 +40,13 @@ const Banner: React.FC<BannerProps> = ({
   return (
     <div
       className={`${
-        isAboutPage || isBlogPage ? "mt-0" : "my-20"
-      } relative flex justify-between items-start w-4/5 mx-auto`}
+        isAboutPage || isBlogPage ? "mt-0" : "lg:my-20 max-sm:my-5"
+      } relative ${
+        isAboutPage || isBlogPage ? "w-full" : "lg:w-4/5 max-sm:w-full"
+      } mx-auto grid grid-cols-2 max-sm:grid-cols-1 max-sm:h-[241px]`}
     >
       {isAboutPage || isBlogPage ? (
-        <div className="absolute inset-0 flex items-start justify-center w-full h-full">
+        <div className="absolute inset-0 flex items-center justify-center w-full h-full max-sm:relative max-sm:z-40">
           <BannerText
             isAboutPage={isAboutPage}
             isBlogPage={isBlogPage}

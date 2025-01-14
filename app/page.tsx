@@ -34,12 +34,12 @@ export default function Home() {
     fetchReview("/api/reviewData");
   }, [fetchBurgers, fetchReview]);
 
-  const styleTextTitle = "text-redGemuany text-[96px]";
-  const styleTextAbout = "text-whiteSecond text-[61px]";
-  const styleContactTitle = "text-whiteSecond text-5xl font-bold";
-  const styleContactAbout = "text-whiteSecond text-2xl font-light opacity-45";
+  const styleTextTitle = "text-redGemuany lg:text-[96px] max-md:text-[49px]";
+  const styleTextAbout = "text-whiteSecond lg:text-[61px] max-sm:text-[26px]";
+  const styleContactTitle = "text-whiteSecond lg:text-5xl max-sm:text-xl font-bold";
+  const styleContactAbout = "text-whiteSecond lg:text-2xl max-sm:text-lg font-light opacity-45";
   const fullBannerPosition =
-    "absolute inset-0 flex flex-col justify-around items-start w-2/6 h-full";
+    "absolute inset-0 flex flex-col lg:justify-around max-sm:justify-center items-start lg:w-2/6 max-sm:w-full lg:h-full max-sm:h-[241px]";
   const stylePositionMenu = "items-center";
   const stylePositionReview = "items-start";
   const srcContact = '/contact'

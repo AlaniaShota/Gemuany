@@ -37,7 +37,7 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
       exit="exit"
       transition={transactionAnimate}
     >
-      <div className="absolute -top-32 left-1/2 transform -translate-x-1/2">
+      <div className="absolute lg:-top-32 max-sm:-top-24 left-1/2 transform -translate-x-1/2">
         <Image
           layout="intrinsic"
           src={data.img}
@@ -84,7 +84,7 @@ const ReviewOrSetsCard: React.FC<ReviewOrSetsCardProps> = ({ data }) => {
     <>
       <motion.div
         key={data.id}
-        className="w-auto h-auto p-8 bg-item rounded-xl relative flex justify-between flex-row items-center"
+        className="w-auto h-auto lg:p-8 max-sm:p-4 bg-item rounded-xl relative flex justify-between flex-row items-center"
       >
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
           <Image
@@ -106,12 +106,12 @@ const ReviewOrSetsCard: React.FC<ReviewOrSetsCardProps> = ({ data }) => {
             style={{ transformStyle: "preserve-3d" }}
             className="flex flex-col justify-start flex-wrap items-start mt-14"
           >
-            <h2 className="text-xl text-whiteSecond">{data.title}</h2>
+            <h2 className="text-xl max-sm:text-lg text-whiteSecond">{data.title}</h2>
             <p className="text-sm opacity-55 text-[#FAF3E0] my-2">
               {data.about}
             </p>
             {isReviewType(data) ? (
-              <h2 className="text-xl text-whiteSecond">{data.name}</h2>
+              <h2 className="text-xl max-sm:text-lg text-whiteSecond">{data.name}</h2>
             ) : (
               <h2 className="text-redGemuany">{data.btn}</h2>
             )}
@@ -130,7 +130,7 @@ const Card: React.FC<ItemProps> = ({ burgerData, menuPage }) => {
 
   return (
     <div
-      className={`${montserrat.className} w-full h-full mt-44 mb-10 text-whiteSecond rounded-lg shadow-lg relative grid grid-cols-3 gap-y-40 gap-x-20`}
+      className={`${montserrat.className} w-full h-full lg:mt-44 max-sm:mt-32 mb-10 text-whiteSecond rounded-lg shadow-lg relative grid lg:grid-cols-3 max-sm:grid-cols-1 gap-y-40 gap-x-20`}
     >
       {data.map((item) =>
         "price" in item ? (
