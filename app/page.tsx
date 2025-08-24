@@ -34,8 +34,8 @@ export default function Home() {
     fetchReview("/api/reviewData");
   }, [fetchBurgers, fetchReview]);
 
-  const styleTextTitle = "text-redGemuany lg:text-[96px] max-md:text-[49px]";
-  const styleTextAbout = "text-whiteSecond lg:text-[61px] max-sm:text-[26px]";
+  const styleTextTitle = "text-redGemuany lg:text-[96px] max-md:text-[89px]";
+  const styleTextAbout = "text-whiteSecond lg:text-[61px] max-sm:text-[46px]";
   const styleContactTitle = "text-whiteSecond lg:text-5xl max-sm:text-xl font-bold";
   const styleContactAbout = "text-whiteSecond lg:text-2xl max-sm:text-lg font-light opacity-45";
   const fullBannerPosition =

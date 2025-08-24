@@ -10,10 +10,10 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 
 const menu = [
-  { id: 1, name: "Burgers", img: imgBurgers, have: true },
-  { id: 2, name: "Combos", img: imgCombos, have: false },
-  { id: 3, name: "Beverages", img: imgBeverages, have: false },
-  { id: 4, name: "Desserts", img: imgDesserts, have: false },
+  { id: 199, name: "Burgers", img: imgBurgers, have: true },
+  { id: 299, name: "Combos", img: imgCombos, have: false },
+  { id: 399, name: "Beverages", img: imgBeverages, have: false },
+  { id: 499, name: "Desserts", img: imgDesserts, have: false },
 ];
 
 const montserrat = Montserrat({
@@ -38,15 +38,15 @@ const MenuType = () => {
             <Image
               src={item.img}
               alt={item.name}
-              className="w-full h-full object-cover"
-              layout="intrinsic"
+              className=" object-cover"
+              
             />
           </div>
           <h3 className={`${montserrat.className} text-whiteSecond`}>
             {item.name}
           </h3>
           <div>
-            <Image src={item.have ? imgGreenLine : imgRedLine} alt="line"  layout="intrinsic"/>
+            <Image src={item.have ? imgGreenLine : imgRedLine} alt="line"  />
           </div>
         </div>
       ))}

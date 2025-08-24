@@ -7,10 +7,10 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 export const links = [
-  { id: 1, title: "About", link: "/about" },
-  { id: 2, title: "Menu", link: "/menu" },
-  { id: 3, title: "Blog", link: "/blog" },
-  { id: 4, title: "Contact us", link: "/contact" },
+  { id: 17, title: "About", link: "/about" },
+  { id: 27, title: "Menu", link: "/menu" },
+  { id: 37, title: "Blog", link: "/blog" },
+  { id: 47, title: "Contact us", link: "/contact" },
 ];
 
 const montserrat = Montserrat({

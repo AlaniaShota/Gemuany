@@ -25,8 +25,8 @@ const Slider = () => {
 
     const delay =
       sliderData[currentIndex].id === 1 || sliderData[currentIndex].id === 6
-        ? 2500
-        : 500;
+        ? 5500
+        : 5200;
 
     const id = setTimeout(() => {
       embla?.scrollNext();
@@ -58,7 +58,7 @@ const Slider = () => {
             <Image
               src={item.src}
               alt={item.alt}
-              layout="intrinsic"
+              
               className="w-full h-full object-cover relative z-20"
             />
           </div>

@@ -5,8 +5,10 @@ import { Variants, motion } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { Lobster, Montserrat } from "next/font/google";
 import { contactBtn } from "../constanta";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { ReadMore } from "../navigation/ButtonLinks";
+import Atropos from "atropos/react";
+import "atropos/css";
 
 interface BannerProps {
   title: string;
@@ -15,15 +17,9 @@ interface BannerProps {
   readMoreBtn?: string;
   img: string | StaticImageData;
   animation?: Variants;
-  styleTextTitle?: string;
-  styleTextAbout?: string;
-  isAboutPage?: boolean;
-  isMenuPage?: boolean;
-  contactPageUrl?: string;
-  menuPageUrl?: string;
   stylePosition?: string;
   contentAboutSectionPosition?: string;
-  src?:string
+  src?: string;
 }
 
 const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
@@ -37,33 +33,28 @@ const FullBanner: React.FC<BannerProps> = ({
   animation,
   title,
   description,
-  stylePosition,
-  contentAboutSectionPosition,
   img,
-  src
+  src,
 }) => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
+  // const isAboutPage = pathname === "/about";
+
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 1,
+    threshold: 0.3,
   });
 
-  const isAboutPage = pathname === "/about";
-
   return (
-    <div className={`relative inset-0 flex h-full lg:w-4/5 max-sm:w-11/12 lg:my-40 max-sm:my-20 mx-auto`}>
-      {!isAboutPage && (
-        <div
-          className={`w-full h-full bg-black bg-opacity-50 relative rounded-xl`}
-        >
-          <Image
-            src={img}
-            alt="Banner Image"
-            layout="intrinsic"
-            className={`w-full h-full object-contain rounded-xl`}
-          />
-        </div>
-      )}
+    <div className="relative inset-0 flex h-full lg:w-4/5 max-sm:w-11/12 lg:my-40 max-sm:my-20 mx-auto">
+      <div className="relative w-full h-[630px] my-atropos rounded-xl overflow-hidden">
+        <Image
+          src={img}
+          alt="Banner Image"
+          fill
+          className="object-cover rounded-xl"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+      </div>
       <motion.div
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
@@ -76,149 +67,38 @@ const FullBanner: React.FC<BannerProps> = ({
           delay: 0.1,
           stiffness: 300,
         }}
-        className={`${
-          stylePosition ? stylePosition : contentAboutSectionPosition
-        } ml-10`}
+        className="absolute z-10 top-1/3  max-sm:left-5"
       >
-        <h2
-          className={`lg:text-4xl max-sm:text-xl text-redGemuany ${lobster.className} font-bold`}
+        <Atropos
+          activeOffset={5}
+          rotateXMax={4}
+          rotateYMax={4}
+          shadow={true}
+          shadowScale={0.1}
+          rotateTouch="scroll-y"
+          highlight={false}
+          duration={300}
         >
-          {title}
-        </h2>
-        <p
-          className={`mt-2 text-whiteSecond ${montserrat.className} text-2xl font-light`}
-        >
-          {description}
-        </p>
-        <ReadMore src={src} readMoreBtn={contactBtn}/>
+          <h2
+            data-atropos-offset="1"
+            data-atropos-scale="5.5"
+            className={`lg:text-4xl max-sm:text-xl text-redGemuany ${lobster.className} font-bold`}
+          >
+            {title}
+          </h2>
+          <p
+            data-atropos-offset="-3"
+            className={`mt-2 text-whiteSecond ${montserrat.className} text-2xl max-sm:text-lg font-light max-w-md`}
+          >
+            {description}
+          </p>
+        </Atropos>
+        <div data-atropos-offset="2" data-atropos-scale="1.2" className="mt-5">
+          <ReadMore src={src} readMoreBtn={contactBtn} />
+        </div>{" "}
       </motion.div>
-      {isAboutPage  && (
-        <div
-          className={`w-full h-full bg-black bg-opacity-50 relative rounded-xl`}
-        >
-          <Image
-            src={img}
-            alt="Banner Image"
-            layout="intrinsic"
-            className={`w-full h-full object-contain rounded-xl`}
-          />
-        </div>
-      )}
     </div>
   );
 };
 
 export default FullBanner;
-
-
-// "use client";
-
-// import { useInView } from "react-intersection-observer";
-// import { Variants, motion } from "framer-motion";
-// import Image, { StaticImageData } from "next/image";
-// import { Lobster, Montserrat } from "next/font/google";
-// import { contactBtn } from "../constanta";
-// import { usePathname } from "next/navigation";
-// import { ReadMore } from "../navigation/ButtonLinks";
-
-// interface BannerProps {
-//   title: string;
-//   description: string;
-//   aboutBtn?: string;
-//   readMoreBtn?: string;
-//   img: string | StaticImageData;
-//   animation?: Variants;
-//   styleTextTitle?: string;
-//   styleTextAbout?: string;
-//   isAboutPage?: boolean;
-//   isMenuPage?: boolean;
-//   contactPageUrl?: string;
-//   menuPageUrl?: string;
-//   stylePosition?: string;
-//   contentAboutSectionPosition?: string;
-//   src?:string
-// }
-
-// const lobster = Lobster({ weight: "400", subsets: ["latin"], preload: false });
-
-// const montserrat = Montserrat({
-//   subsets: ["latin"],
-//   preload: false,
-// });
-
-// const FullBanner: React.FC<BannerProps> = ({
-//   animation,
-//   title,
-//   description,
-//   stylePosition,
-//   contentAboutSectionPosition,
-//   img,
-//   src
-// }) => {
-//   const pathname = usePathname();
-//   const { ref, inView } = useInView({
-//     triggerOnce: true,
-//     threshold: 1,
-//   });
-
-//   const isAboutPage = pathname === "/about";
-
-//   return (
-//     <div className={`relative inset-0 flex h-full lg:w-4/5 max-sm:w-11/12 lg:my-40 max-sm:my-20 mx-auto`}>
-//       {!isAboutPage && (
-//         <div
-//           className={`w-full h-full max-sm:h-[241px] bg-black bg-opacity-50 relative rounded-xl flex`}
-//         >
-//           <Image
-//             src={img}
-//             alt="Banner Image"
-//             layout="fill"
-//             className={`w-full h-full lg:object-contain max-sm:object-center rounded-xl`}
-//           />
-//         </div>
-//       )}
-//       <motion.div
-//         initial="hidden"
-//         animate={inView ? "visible" : "hidden"}
-//         exit="exit"
-//         variants={animation}
-//         ref={ref}
-//         transition={{
-//           type: "spring",
-//           duration: 0.4,
-//           delay: 0.1,
-//           stiffness: 300,
-//         }}
-//         className={`${
-//           stylePosition ? stylePosition : contentAboutSectionPosition
-//         } lg:ml-10 max-sm:ml-0`}
-//       >
-//         <h2
-//           className={`lg:text-5xl max-sm:text-xl text-redGemuany ${lobster.className} font-bold`}
-//         >
-//           {title}
-//         </h2>
-//         <p
-//           className={`mt-2 text-whiteSecond ${montserrat.className} lg:text-2xl max-sm:text-base font-light`}
-//         >
-//           {description}
-//         </p>
-//         <ReadMore src={src} readMoreBtn={contactBtn}/>
-//       </motion.div>
-//       {isAboutPage  && (
-//         <div
-//           className={`w-full h-full bg-black bg-opacity-50 relative rounded-xl`}
-//         >
-//           <Image
-//             src={img}
-//             alt="Banner Image"
-//             layout="fill"
-//             className={`w-full h-full object-contain rounded-xl`}
-//           />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default FullBanner;

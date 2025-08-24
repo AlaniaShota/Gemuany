@@ -9,24 +9,24 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const linkUrl = [ 
-    { id: 1, title: 'About us', link: '/about' },
-    { id: 2, title: 'Order', link: '/menu' },
-    { id: 3, title: 'Our story', link: '/blog' },
-    { id: 4, title: 'Contact us', link: '/contact' }
+    { id: 11, title: 'About us', link: '/about' },
+    { id: 21, title: 'Order', link: '/menu' },
+    { id: 31, title: 'Our story', link: '/blog' },
+    { id: 41, title: 'Contact us', link: '/contact' }
 ]
 
 const linkDisable = [
-    { id: 1, title: 'English' },
-    { id: 2, title: 'Privacy' },
-    { id: 3, title: 'Community' },
-    { id: 4, title: 'Cookie preferences' },
+    { id: 10, title: 'English' },
+    { id: 20, title: 'Privacy' },
+    { id: 30, title: 'Community' },
+    { id: 40, title: 'Cookie preferences' },
 ] 
 
 const linkIcon = [
-    { id: 1, img: facebook, link: 'facebook.com'},
-    { id: 2, img: instagram, link: 'instagram.com'},
-    { id: 3, img: twitter, link: 'twitter.com'},
-    { id: 4, img: youtube, link: 'youtube.com'},
+    { id: 13, img: facebook, link: 'facebook.com'},
+    { id: 23, img: instagram, link: 'instagram.com'},
+    { id: 33, img: twitter, link: 'twitter.com'},
+    { id: 43, img: youtube, link: 'youtube.com'},
     { id: 5, img: linkedIn, link: 'linkedin.com'}
 ]
 
@@ -51,7 +51,7 @@ const LinkList = () => {
         <div className='flex flex-row items-center gap-4 mt-0 max-sm:mt-4'>
             {linkIcon.map(item => (
                 <Link key={item.id} href={item.link} target='_blank' className='w-6 h-6'>
-                <Image src={item.img} layout="intrinsic" alt='Link' className='object-cover w-full h-full'/>
+                <Image src={item.img}  alt='Link' className='object-cover' />
                 </Link>
             ))}
         </div>

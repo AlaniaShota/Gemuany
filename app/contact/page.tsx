@@ -1,7 +1,7 @@
 "use client";
 
 import imageContactPage from "@/public/pikaso_text-to-image_Candid-image-photography-natural-textures-highly-r (1) 1 (1).png";
-import { visibleExit } from "../animation";
+import { animationUpDown } from "../animation";
 import Banner from "../component/banner/Banner";
 import { contactDescription, contactTitle } from "../component/constanta";
 import ContactBanner from "./component/ContactBanner";
@@ -16,7 +16,7 @@ export default function Contact() {
   return (
     <>
       <Banner
-        animation={visibleExit}
+        animation={animationUpDown}
         img={imageContactPage}
         title={contactTitle}
         description={contactDescription}

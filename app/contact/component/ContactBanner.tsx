@@ -23,14 +23,14 @@ import { Montserrat } from "next/font/google";
 const montserrat = Montserrat({
   subsets: ["latin"],
   preload: false,
-  weight:"700"
+  weight: "700",
 });
 
 const leftData = [
-  { id: 1, title: addressTitle, description: addressDescription },
-  { id: 2, title: phoneTitle, description: phoneDescription },
+  { id: 16, title: addressTitle, description: addressDescription },
+  { id: 26, title: phoneTitle, description: phoneDescription },
   {
-    id: 3,
+    id: 36,
     title: mediaTitle,
     description: mediaDescription,
     instagram: instagram,
@@ -40,13 +40,13 @@ const leftData = [
 
 const rightData = [
   {
-    id: 1,
+    id: 14,
     title: workTimeTitle,
     description: workTimeMonday,
     secondDescription: workTimeSaturdaySunday,
   },
   {
-    id: 2,
+    id: 24,
     title: emailTitle,
     description: emailDescription,
   },
@@ -59,8 +59,7 @@ const ContactBanner = () => {
         <Image
           src={imgLocation}
           alt="location"
-          layout="intrinsic"
-          className="w-full h-full object-cover rounded-xl"
+          className="object-cover w-full rounded-xl"
         />
       </div>
       <motion.div
@@ -82,7 +81,7 @@ const ContactBanner = () => {
             <div className="flex flex-row justify-between items-start w-full h-full">
               <div className="w-1/2 h-full flex justify-start items-center flex-col">
                 {leftData.map((item) => (
-                  <div 
+                  <div
                     key={item.id}
                     className={`${montserrat.className} flex flex-col justify-start list-disc gap-y-4  items-start text-whiteSecond w-full h-full`}
                   >
@@ -92,7 +91,7 @@ const ContactBanner = () => {
                     <p className="font-light list-disc text-start pl-5">
                       {item.description}
                     </p>
-                    {instagram && (
+                    {item.instagram && (
                       <>
                         <p className="font-light text-start pl-5">
                           {item.instagram}
@@ -112,9 +111,13 @@ const ContactBanner = () => {
                     className={`${montserrat.className} flex flex-col justify-start items-start  gap-y-4  text-whiteSecond w-auto h-auto`}
                   >
                     <h1 className="text-2xl font-normal pt-6">{item.title}</h1>
-                    <p className="font-light text-start pl-5">{item.description}</p>
+                    <p className="font-light text-start pl-5">
+                      {item.description}
+                    </p>
                     {item.secondDescription && (
-                      <p className="font-light text-start pl-5">{item.secondDescription}</p>
+                      <p className="font-light text-start pl-5">
+                        {item.secondDescription}
+                      </p>
                     )}
                   </div>
                 ))}

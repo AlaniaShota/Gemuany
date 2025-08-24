@@ -27,25 +27,25 @@ import { animationUpDown, visibleExit } from "../animation";
 
 const bannerData = [
   {
-    id: 1,
+    id: 19,
     title: receptTitle,
     description: receptDescription,
     img: receptImg,
   },
   {
-    id: 2,
+    id: 29,
     title: cultureTitle,
     description: cultureDescription,
     img: cultureImg,
   },
   {
-    id: 3,
+    id: 39,
     title: scenesTitle,
     description: scenesDescription,
     img: scenesImg,
   },
   {
-    id: 4,
+    id: 49,
     title: singUpTitle,
     description: singUpDescription,
     img: singUpImg,
@@ -58,7 +58,7 @@ export default function Blog() {
     fetchSets("/api/setsData");
   }, [fetchSets]);
 
-  const styleTextTitle = "text-whiteSecond text-5xl";
+  const styleTextTitle = "text-whiteSecond text-center text-5xl";
   const styleTextAbout = "text-whiteSecond text-2xl font-light";
   const titlePosition = "items-center";
   const fullBannerPosition =

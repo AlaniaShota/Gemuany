@@ -11,14 +11,10 @@ interface BannerProps {
   title: string;
   description: string;
   aboutBtn?: string;
-  readMoreBtn?: string;
   img: string | StaticImageData;
   animation?: Variants;
   styleTextTitle?: string;
   styleTextAbout?: string;
-  isAboutPage?: boolean;
-  isContactPage?: boolean;
-  isBlogPage?: boolean;
   src?: string;
 }
 
@@ -33,32 +29,22 @@ const Banner: React.FC<BannerProps> = ({
   src,
 }) => {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const isAboutPage = pathname === "/about";
   const isBlogPage = pathname === "/blog";
   const isContactPage = links.some((item) => item.link === "/contact");
 
+  const containerClass = isHomePage
+    ? "relative lg:w-4/5 max-sm:w-full mx-auto grid lg:grid-cols-2 max-sm:grid-cols-1 lg:my-20 max-sm:my-5 h-[493px] max-sm:h-screen"
+    : "relative w-full flex h-[600px] max-sm:h-screen";
+
+  const textWrapperClass = isHomePage
+    ? "lg:static max-sm:absolute inset-x-0  max-sm:bg-black/30 max-sm:h-screen top-0 flex justify-center items-start text-center max-sm:py-8 z-40"
+    : "absolute inset-0 flex items-center justify-center text-center max-sm:relative max-sm:z-40";
+
   return (
-    <div
-      className={`${
-        isAboutPage || isBlogPage ? "mt-0" : "lg:my-20 max-sm:my-5"
-      } relative ${
-        isAboutPage || isBlogPage ? "w-full" : "lg:w-4/5 max-sm:w-full"
-      } mx-auto grid grid-cols-2 max-sm:grid-cols-1 max-sm:h-[241px]`}
-    >
-      {isAboutPage || isBlogPage ? (
-        <div className="absolute inset-0 flex items-center justify-center w-full h-full max-sm:relative max-sm:z-40">
-          <BannerText
-            isAboutPage={isAboutPage}
-            isBlogPage={isBlogPage}
-            title={title}
-            description={description}
-            animation={animation}
-            styleTextTitle={styleTextTitle}
-            styleTextAbout={styleTextAbout}
-            src={src}
-          />
-        </div>
-      ) : (
+    <div className={containerClass}>
+      <div className={textWrapperClass}>
         <BannerText
           title={title}
           description={description}
@@ -66,11 +52,18 @@ const Banner: React.FC<BannerProps> = ({
           animation={animation}
           styleTextTitle={styleTextTitle}
           styleTextAbout={styleTextAbout}
-          isContactPage={isContactPage}
           src={src}
+          isAboutPage={isAboutPage}
+          isBlogPage={isBlogPage}
+          isContactPage={isContactPage}
         />
-      )}
-      <BannerImg img={img} animation={animation} />
+      </div>
+
+      <BannerImg
+        img={img}
+        animation={animation}
+        isHomePage={isHomePage}
+      />
     </div>
   );
 };

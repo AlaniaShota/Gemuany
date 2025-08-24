@@ -39,7 +39,7 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
     >
       <div className="absolute lg:-top-32 max-sm:-top-24 left-1/2 transform -translate-x-1/2">
         <Image
-          layout="intrinsic"
+         
           src={data.img}
           alt="Testing"
           width={346}
@@ -61,7 +61,6 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
               {data.time}
             </span>
             <Image
-              layout="intrinsic"
               src={data.add_svg}
               alt={data.name}
               width={29}
@@ -88,7 +87,7 @@ const ReviewOrSetsCard: React.FC<ReviewOrSetsCardProps> = ({ data }) => {
       >
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
           <Image
-            layout="intrinsic"
+            
             src={data.img}
             alt="Testing"
             width={113}
@@ -148,9 +147,11 @@ const Card: React.FC<ItemProps> = ({ burgerData, menuPage }) => {
           className="col-start-2 mx-auto flex justify-center items-center w-10 h-10 bg-[#75C644] text-white rounded-full"
         >
           <Image
+          width={24}
+          height={24}
             src={arrowShowMore}
             alt="arrow"
-            className="w-6 h-6 object-cover"
+            className="object-cover"
           />
         </button>
       )}

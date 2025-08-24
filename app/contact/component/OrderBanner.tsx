@@ -28,8 +28,8 @@ const OrderBanner:React.FC<BannerProps> = ({src}) => {
             <Image
               src={imgOrder}
               alt="location"
-              layout="intrinsic"
-              className="w-full h-full object-cover rounded-xl"
+
+              className="object-cover w-full rounded-xl"
             />
           </div>
           <motion.div

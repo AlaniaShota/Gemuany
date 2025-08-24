@@ -9,7 +9,8 @@ interface ListProps {
 }
 
 const montserrat = Montserrat({
-  weight: "400",
+  subsets: ["latin"],
+  preload: false,
 });
 
 const Review: React.FC<ListProps> = ({ review }) => {
@@ -26,17 +27,17 @@ const Review: React.FC<ListProps> = ({ review }) => {
           >
             <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
               <Image
-                layout="intrinsic"
                 src={item.img}
+                
                 alt="Testing"
                 width={113}
                 height={113}
-                className="rounded-full"
+                className="rounded-full h-auto w-auto"
               />
             </div>
             <div className="flex flex-col justify-between items-start w-full">
               <motion.div
-                initial="initial"
+                initial
                 animate="animate"
                 exit="exit"
                 transition={{ type: "spring", duration: 0.4, stiffness: 300 }}
