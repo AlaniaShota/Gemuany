@@ -33,8 +33,10 @@ body {
   transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
   transition-duration: 500ms;
   transition-property: color;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-items: center;
+  margin: 0 80px;
 }
 
 .readMoreBtn:focus,

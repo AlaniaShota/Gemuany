@@ -6,39 +6,35 @@ import { Variants, motion } from "framer-motion";
 interface BannerImgProps {
   img: string | StaticImageData;
   animation?: Variants;
-  isHomePage?: boolean;
+  wrapperClassName?: string;
+  imageClassName?: string;
+  fill?: boolean;
+  overlayClassName?: string; // если есть — рисуем overlay
 }
 
 const BannerImg: React.FC<BannerImgProps> = ({
   img,
   animation,
-  isHomePage,
+  wrapperClassName = "relative w-full h-full flex justify-center items-center",
+  imageClassName = "object-cover w-full h-full",
+  fill = true,
+  overlayClassName,
 }) => {
-  const imgWrapperClass = isHomePage
-    ? "relative sm:absolute w-full flex justify-end items-center opacity-45 h-[393px] max-sm:h-screen" 
-    : "relative w-full h-full flex justify-center items-center";
-
-  const imgClass = isHomePage
-    ? "object-cover w-full h-full max-w-md max-sm:max-w-full"
-    : "object-cover w-full h-full";
-
   return (
     <motion.div
-      className={imgWrapperClass}
+      className={wrapperClassName}
       initial="hidden"
       animate="visible"
       variants={animation}
     >
       <Image
         src={img}
-        alt="Banner Image"
-        className={imgClass}
-        fill={!isHomePage }
+        alt="Banner"
+        className={imageClassName}
+        {...(fill ? { fill: true } : { width: 100, height: 1080 })}
         priority
       />
-      {!isHomePage && (
-        <div className="absolute inset-0 bg-black/30" /> 
-      )}
+      {overlayClassName ? <div className={overlayClassName} /> : null}
     </motion.div>
   );
 };

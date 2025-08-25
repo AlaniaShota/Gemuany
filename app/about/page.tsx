@@ -17,7 +17,6 @@ import {
 } from "./component/constanta";
 import aboutImg from "@/public/freepik-export-20241012102932k36Z 1 (2).png";
 import Banner from "@/app/component/banner/Banner";
-import FullBanner from "../component/banner/FullBanner";
 import { animationUpDown, visibleExit } from "../animation";
 import { useEffect } from "react";
 import useSetsStore from "../store/useSetsStore";
@@ -36,10 +35,10 @@ export default function About() {
   const styleContactTitle = "text-whiteSecond text-5xl font-bold";
   const styleContactAbout = "text-whiteSecond text-2xl font-light opacity-45";
   const stylePositionMenu = "items-center";
-  const fullBannerPosition =
-    "absolute inset-0 flex flex-col justify-around items-start w-3/6 h-full z-50";
-  const contentAboutSectionPosition =
-    "flex flex-col justify-around items-start w-4/6";
+  // const fullBannerPosition =
+  //   "absolute inset-0 flex flex-col justify-around w-3/6 h-full z-50";
+  // const contentAboutSectionPosition =
+  //   "flex flex-col justify-around w-4/6";
   const src = '/menu'
 
   return (
@@ -51,8 +50,9 @@ export default function About() {
         animation={animationUpDown}
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
+        variant="full"
       />
-      <FullBanner
+      <Banner
         img={aboutSectionImg}
         title={aboutSectionTitle}
         description={aboutSectionDescription}
@@ -60,12 +60,13 @@ export default function About() {
         readMoreBtn={readMoreBtn}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
-        contentAboutSectionPosition={contentAboutSectionPosition}
+        // contentAboutSectionPosition={contentAboutSectionPosition}
         src={src}
+        variant="full"
       />
       <List sets={sets} title={setsTitle} titlePosition={stylePositionMenu} />
       <MenuLinkBtn/>
-      <FullBanner
+      <Banner
         img={visionImg}
         title={visionTitle}
         description={visionDescription}
@@ -73,11 +74,12 @@ export default function About() {
         readMoreBtn={readMoreBtn}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
-        contentAboutSectionPosition={contentAboutSectionPosition}
-        stylePosition={fullBannerPosition}
+        // contentAboutSectionPosition={contentAboutSectionPosition}
+        // stylePosition={fullBannerPosition}
         src={src}
+        variant="full"
       />
-      <FullBanner
+      <Banner
         img={meetTeamImg}
         title={meetTeamTitle}
         description={meetTeamDescription}
@@ -85,9 +87,10 @@ export default function About() {
         readMoreBtn={readMoreBtn}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
-        contentAboutSectionPosition={contentAboutSectionPosition}
-        stylePosition={fullBannerPosition}
+        // contentAboutSectionPosition={contentAboutSectionPosition}
+        // stylePosition={fullBannerPosition}
         src={src}
+        variant="full"
       />
     </>
   );

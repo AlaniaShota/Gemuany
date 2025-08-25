@@ -30,7 +30,7 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
   return (
     <motion.div
       key={data.id}
-      className="w-full p-6 bg-item rounded-lg relative flex justify-center flex-col items-center"
+      className="w-full p-6 max-sm:p-4 bg-item rounded-lg relative flex justify-center flex-col items-center"
       variants={itemVariants[data.id - 1]}
       initial="initial"
       animate="animate"
@@ -39,7 +39,6 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
     >
       <div className="absolute lg:-top-32 max-sm:-top-24 left-1/2 transform -translate-x-1/2">
         <Image
-         
           src={data.img}
           alt="Testing"
           width={346}
@@ -49,8 +48,8 @@ const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
       </div>
       <div className="flex flex-col justify-between items-start w-full">
         <div className="flex flex-col justify-start flex-wrap items-start mt-14">
-          <h2 className="text-xl font-semibold">{data.name}</h2>
-          <p className="text-sm opacity-55 text-[#FAF3E0] font-light my-2">
+          <h2 className="text-2xl font-semibold">{data.name}</h2>
+          <p className="text-lg opacity-55 text-[#FAF3E0] font-light my-2">
             {data.about}
           </p>
         </div>

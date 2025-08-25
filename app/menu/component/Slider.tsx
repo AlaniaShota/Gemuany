@@ -7,12 +7,12 @@ import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
 const sliderData = [
-  { id: 1, src: firstImg, alt: "Slider" },
-  { id: 2, src: secondImg, alt: "Slider" },
-  { id: 3, src: firstImg, alt: "Slider" },
-  { id: 4, src: secondImg, alt: "Slider" },
-  { id: 5, src: firstImg, alt: "Slider" },
-  { id: 6, src: secondImg, alt: "Slider" },
+  { id: 188, src: firstImg, alt: "Slider" },
+  { id: 288, src: secondImg, alt: "Slider" },
+  { id: 388, src: firstImg, alt: "Slider" },
+  { id: 488, src: secondImg, alt: "Slider" },
+  { id: 588, src: firstImg, alt: "Slider" },
+  { id: 688, src: secondImg, alt: "Slider" },
 ];
 
 const Slider = () => {

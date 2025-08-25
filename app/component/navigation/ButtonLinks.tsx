@@ -36,23 +36,9 @@ export const MenuLinkBtn = () => {
 
 export const ReadMore: React.FC<LinksProp> = ({ src = "/", readMoreBtn }) => {
   return (
-    <motion.div
-      whileHover={{ scale: 1.1 }}
-      transition={{
-        type: "spring",
-        duration: 0.1,
-        delay: 0.1,
-        stiffness: 300,
-      }}
-    >
+    <div >
       <button className="readMoreBtn">
-      <Link
-        href={src}
-        // className="flex items-start justify-start text-redGemuany border-b border-transparent hover:border-b-red-700 "
-      >
-        {readMoreBtn}{" "}
-        {/* <Image src={arrow} alt="arrow" width={18} className="pt-1 ml-3" /> */}
-      </Link>
+        <Link href={src}>{readMoreBtn} </Link>
         <span className="icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +49,6 @@ export const ReadMore: React.FC<LinksProp> = ({ src = "/", readMoreBtn }) => {
           </svg>
         </span>
       </button>
-      
-    </motion.div>
+    </div>
   );
 };

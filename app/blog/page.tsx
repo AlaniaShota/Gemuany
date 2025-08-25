@@ -22,7 +22,6 @@ import Banner from "../component/banner/Banner";
 import List from "../component/List";
 import useSetsStore from "../store/useSetsStore";
 import { useEffect } from "react";
-import FullBanner from "../component/banner/FullBanner";
 import { animationUpDown, visibleExit } from "../animation";
 
 const bannerData = [
@@ -61,8 +60,6 @@ export default function Blog() {
   const styleTextTitle = "text-whiteSecond text-center text-5xl";
   const styleTextAbout = "text-whiteSecond text-2xl font-light";
   const titlePosition = "items-center";
-  const fullBannerPosition =
-    "absolute inset-0 flex flex-col justify-around items-start w-2/6 h-full";
   const src = "/about";
 
   return (
@@ -75,16 +72,18 @@ export default function Blog() {
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
         src={src}
+        variant="full"
       />
       <List sets={sets} title={sectionTitle} titlePosition={titlePosition} />
       {bannerData.map((item) => (
-        <FullBanner
+        <Banner
           key={item.id}
           title={item.title}
           description={item.description}
           img={item.img}
-          stylePosition={fullBannerPosition}
+          // stylePosition={fullBannerPosition}
           animation={visibleExit}
+          variant="full"
         />
       ))}
     </>

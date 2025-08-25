@@ -11,37 +11,36 @@ const montserrat = Montserrat({
 });
 const UserReview = () => (
   <div className="flex flex-col justify-around items-start w-4/5 max-sm:w-11/12 mt-10 mx-auto gap-4">
-  <div className="form__group field">
-    <div className="form__group">
-      <input
-        id="email"
-        type="text"
-        className={`${montserrat.className} form__field`}
-        placeholder="Email"
-        required
-      />
-      <label htmlFor="email" className={`${lobster.className} form__label`}>
-        {email}
-      </label>
-    </div>
+    <div className="form__group field">
+      <div className="form__group">
+        <input
+          id="email"
+          type="text"
+          className={`${montserrat.className} form__field`}
+          placeholder="Email"
+          required
+        />
+        <label htmlFor="email" className={`${lobster.className} form__label`}>
+          {email}
+        </label>
+      </div>
 
-    <div className="form__group">
-      <input
-        id="message"
-        type="text"
-        className={`${montserrat.className} form__field`}
-        placeholder="Message"
-        required
-      />
-      <label htmlFor="message" className={`${lobster.className} form__label`}>
-        {message}
-      </label>
+      <div className="form__group">
+        <input
+          id="message"
+          type="text"
+          className={`${montserrat.className} form__field`}
+          placeholder="Message"
+          required
+        />
+        <label htmlFor="message" className={`${lobster.className} form__label`}>
+          {message}
+        </label>
+      </div>
+      <Button widthStyle="w-1/2 self-start">
+        <span>{submit}</span>
+      </Button>
     </div>
-    <Button widthStyle="w-1/2 self-start">
-  <span>{submit}</span>
-</Button>
-
-  </div>
   </div>
 );
 

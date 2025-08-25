@@ -22,6 +22,7 @@ export default function Contact() {
         description={contactDescription}
         styleTextTitle={styleContactTitle}
         styleTextAbout={styleContactAbout}
+        variant="full"
       />
       <ContactBanner />
       <OrderBanner src={srcAbout}/>
