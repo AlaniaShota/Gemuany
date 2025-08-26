@@ -45,9 +45,9 @@ const MenuType = () => {
           <h3 className={`${montserrat.className} text-whiteSecond`}>
             {item.name}
           </h3>
-          <div>
+          <>
             <Image src={item.have ? imgGreenLine : imgRedLine} alt="line"  />
-          </div>
+          </>
         </div>
       ))}
     </div>

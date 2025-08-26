@@ -27,7 +27,7 @@ const linkIcon = [
     { id: 23, img: instagram, link: 'instagram.com'},
     { id: 33, img: twitter, link: 'twitter.com'},
     { id: 43, img: youtube, link: 'youtube.com'},
-    { id: 5, img: linkedIn, link: 'linkedin.com'}
+    { id: 53, img: linkedIn, link: 'linkedin.com'}
 ]
 
 const LinkList = () => {

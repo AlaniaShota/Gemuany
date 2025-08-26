@@ -50,7 +50,7 @@ const BannerText: React.FC<BannerTextProps> = ({
       animate={!disableAnimation ? "visible" : false}
       exit={!disableAnimation ? "exit" : undefined}
       transition={!disableAnimation ? transactionAnimate : undefined}
-      className={`flex flex-col w-full justify-center  h-full gap-8 z-10`}
+      className={`flex flex-col w-full justify-center h-full gap-8 z-10`}
     >
       <Atropos
         activeOffset={5}
@@ -78,7 +78,7 @@ const BannerText: React.FC<BannerTextProps> = ({
       </Atropos>
 
       {aboutBtn && (
-        <Button widthStyle="w-1/2">
+        <Button widthStyle="w-1/2 mx-20">
           <span>{aboutBtn}</span>
         </Button>
       )}

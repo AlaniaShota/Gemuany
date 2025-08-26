@@ -50,7 +50,7 @@ export default function About() {
         animation={animationUpDown}
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
-        variant="full"
+        variant="header"
       />
       <Banner
         img={aboutSectionImg}

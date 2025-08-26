@@ -23,6 +23,7 @@ import List from "../component/List";
 import useSetsStore from "../store/useSetsStore";
 import { useEffect } from "react";
 import { animationUpDown, visibleExit } from "../animation";
+import { readMoreBtn } from "../about/component/constanta";
 
 const bannerData = [
   {
@@ -71,8 +72,8 @@ export default function Blog() {
         description={blobDescription}
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
-        src={src}
-        variant="full"
+        // src={src}
+        variant="header"
       />
       <List sets={sets} title={sectionTitle} titlePosition={titlePosition} />
       {bannerData.map((item) => (
@@ -83,6 +84,8 @@ export default function Blog() {
           img={item.img}
           // stylePosition={fullBannerPosition}
           animation={visibleExit}
+          styleTextTitle={styleTextTitle}
+          styleTextAbout={styleTextAbout}
           variant="full"
         />
       ))}
