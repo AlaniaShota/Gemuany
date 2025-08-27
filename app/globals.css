@@ -36,7 +36,7 @@ body {
   display: flex;
   align-items: center;
   justify-items: center;
-  margin: 0 80px;
+  /* margin: 0 80px; */
 }
 
 .readMoreBtn:focus,
@@ -148,4 +148,14 @@ body {
 .form__field:required,
 .form__field:invalid {
   box-shadow: none;
+}
+
+@media (width: 375px) {
+  .readMoreBtn {
+    align-items: start;
+    justify-items: start;
+  }
+  .form__group {
+    width: 100%;
+  }
 }

@@ -11,6 +11,7 @@ import { orderDescription, orderTitle, websiteTitle, websiteDescription, partner
 import { Montserrat } from "next/font/google";
 import { ReadMore } from "@/app/component/navigation/ButtonLinks";
 import { readMoreBtn } from "@/app/about/component/constanta";
+import { hover, motionProps } from "@/app/animation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -33,12 +34,9 @@ const OrderBanner:React.FC<BannerProps> = ({src}) => {
             />
           </div>
           <motion.div
-            transition={{
-              type: "spring",
-              duration: 0.4,
-              delay: 0.1,
-              stiffness: 300,
-            }}
+               {...motionProps.visibleExit}
+               whileHover={hover}
+               style={{ transformStyle: "preserve-3d" }}
             className="absolute inset-0 flex flex-col justify-center items-center text-center p-4"
           >
             <div className={`${montserrat.className} w-2/3  h-full flex flex-col justify-around items-center text-whiteSecond`}>

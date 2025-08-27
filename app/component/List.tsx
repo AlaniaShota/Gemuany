@@ -1,12 +1,13 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import { Burger } from "../store/useStore";
-import { visibleExit } from "../animation";
+import { transactionAnimate, visibleExit } from "../animation";
 import Card from "./Card";
 import { SetsType } from "../store/useSetsStore";
 import { ReviewType } from "../store/useStoreReview";
+import { useDisableAnimation } from "../useDisableAnimation";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,23 +32,21 @@ const List: React.FC<ListProps> = ({
   menuPage,
 }) => {
   const data = burgers || sets || review || [];
+  const { ref } = useInView({ triggerOnce: true, threshold: 1 });
+  const disableAnimation = useDisableAnimation()
   return (
     <div
       className={`flex justify-center ${titlePosition} lg:w-4/5 max-sm:w-11/12 mt-10 mx-auto flex-col`}
     >
       <AnimatePresence>
         <motion.h1
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          variants={visibleExit}
-          transition={{
-            type: "spring",
-            duration: 0.4,
-            delay: 0.1,
-            stiffness: 300,
-          }}
-          className={`${montserrat.className} text-whiteSecond lg:text-4xl max-sm:text-2xl font-semibold`}
+          ref={ref}
+          // variants={!disableAnimation ? visibleExit : undefined}
+          // initial={!disableAnimation ? "hidden" : false}
+          // animate={!disableAnimation ? "visible" : false}
+          // exit={!disableAnimation ? "exit" : undefined}
+          // transition={!disableAnimation ? transactionAnimate : undefined}
+          className={`${montserrat.className} text-whiteSecond flex flex-col lg:text-4xl max-sm:text-2xl font-semibold`}
         >
           {title}
         </motion.h1>

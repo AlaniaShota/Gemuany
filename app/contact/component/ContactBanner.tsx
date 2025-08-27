@@ -19,6 +19,8 @@ import {
   facebook,
 } from "./constanta";
 import { Montserrat } from "next/font/google";
+import { motionProps } from "@/app/animation";
+import { useInView } from "react-intersection-observer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -53,6 +55,7 @@ const rightData = [
 ];
 
 const ContactBanner = () => {
+  const { ref } = useInView({ triggerOnce: true, threshold: 0.3 });
   return (
     <div className="relative flex h-full w-4/5 my-32 mx-auto">
       <div className="w-full h-full bg-black bg-opacity-50 relative rounded-xl">
@@ -63,12 +66,8 @@ const ContactBanner = () => {
         />
       </div>
       <motion.div
-        transition={{
-          type: "spring",
-          duration: 0.4,
-          delay: 0.1,
-          stiffness: 300,
-        }}
+       {...motionProps.visibleExit}
+       ref={ref}
         className="absolute inset-0 flex flex-col justify-center items-center text-center p-4"
       >
         <div className="flex flex-col justify-between items-center w-full">

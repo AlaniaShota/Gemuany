@@ -2,6 +2,7 @@
 
 import Image, { StaticImageData } from "next/image";
 import { Variants, motion } from "framer-motion";
+import { visibleExit } from "@/app/animation";
 
 interface BannerImgProps {
   img: string | StaticImageData;
@@ -14,7 +15,6 @@ interface BannerImgProps {
 
 const BannerImg: React.FC<BannerImgProps> = ({
   img,
-  animation,
   wrapperClassName = "relative w-full h-full flex justify-center items-center",
   imageClassName = "object-cover w-full h-full",
   fill = true,
@@ -22,10 +22,12 @@ const BannerImg: React.FC<BannerImgProps> = ({
 }) => {
   return (
     <motion.div
-      className={wrapperClassName}
+    className={wrapperClassName}
       initial="hidden"
       animate="visible"
-      variants={animation}
+      exit="exit"
+      variants={visibleExit}
+      transition={{ ...{ type: "spring", duration: 0.4, stiffness: 300 } }}
     >
       <Image
         src={img}

@@ -28,7 +28,7 @@ export default function Menu() {
   return (
     <>
       <div className="absolute top-80 z-20 w-full flex items-center justify-center ">
-        <h1 className={`${montserrat.className} text-6xl text-whiteSecond bg-black p-6 rounded-3xl`}>{menuTitle}</h1>
+        <h1 className={`${montserrat.className} text-6xl max-sm:text-2xl text-whiteSecond bg-black p-6 rounded-3xl`}>{menuTitle}</h1>
       </div>
       <Slider />
       <MenuType />

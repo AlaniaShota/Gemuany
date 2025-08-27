@@ -2,12 +2,12 @@
 
 import { useInView } from "react-intersection-observer";
 import { usePathname } from "next/navigation";
-import { Variants, motion } from "framer-motion";
+import { Variants, motion,AnimatePresence } from "framer-motion";
 import { StaticImageData } from "next/image";
 import BannerImg from "./component/BannerImg";
 import BannerText from "./component/BannerText";
 import { BannerPageType, BannerVariant, layoutConfig } from "./bannerConfig";
-
+import { transactionAnimate, visibleExit } from "@/app/animation";
 interface BannerProps {
   title: string;
   description: string;
@@ -54,20 +54,16 @@ const Banner: React.FC<BannerProps> = ({
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
+    <AnimatePresence>
     <div className={containerClass}>
       <motion.div
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        exit="exit"
-        variants={animation}
-        ref={ref}
-        transition={{
-          type: "spring",
-          duration: 0.4,
-          delay: 0.1,
-          stiffness: 300,
-        }}
-        className={textWrapperClass}
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      exit="exit"
+      variants={visibleExit}
+      transition={transactionAnimate}
+      className={textWrapperClass}
       >
         <BannerText
           title={title}
@@ -90,6 +86,7 @@ const Banner: React.FC<BannerProps> = ({
         overlayClassName={overlayClass}
       />
     </div>
+    </AnimatePresence>
   );
 };
 

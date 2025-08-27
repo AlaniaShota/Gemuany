@@ -25,8 +25,8 @@ const Slider = () => {
 
     const delay =
       sliderData[currentIndex].id === 1 || sliderData[currentIndex].id === 6
-        ? 5500
-        : 5200;
+        ? 9500
+        : 8200;
 
     const id = setTimeout(() => {
       embla?.scrollNext();
@@ -47,21 +47,22 @@ const Slider = () => {
   }, [embla]);
 
   return (
-    <div className="overflow-hidden w-full h-[450px] my-10" ref={emblaRef}>
+    <div className="overflow-hidden w-full h-[493px] max-sm:h-screen my-10" ref={emblaRef}>
       <div className="flex w-full h-full">
         {sliderData.map((item) => (
-          <div
-            key={item.id}
-            className="embla__slide w-full h-full flex-shrink-0 transition-transform duration-300 ease-in-out "
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-20 z-10" />
-            <Image
-              src={item.src}
-              alt={item.alt}
-              
-              className="w-full h-full object-cover relative z-20"
-            />
-          </div>
+         <div
+         key={item.id}
+         className="embla__slide w-full h-full flex-shrink-0 relative overflow-hidden"
+       >
+         <Image
+           src={item.src}
+           alt={item.alt}
+           className="w-full h-full object-cover"
+           priority
+         />
+         <div className="absolute inset-0 bg-black bg-opacity-45"></div>
+       </div>
+       
         ))}
       </div>
     </div>

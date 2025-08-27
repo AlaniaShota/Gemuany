@@ -23,7 +23,6 @@ import List from "../component/List";
 import useSetsStore from "../store/useSetsStore";
 import { useEffect } from "react";
 import { animationUpDown, visibleExit } from "../animation";
-import { readMoreBtn } from "../about/component/constanta";
 
 const bannerData = [
   {
@@ -61,7 +60,7 @@ export default function Blog() {
   const styleTextTitle = "text-whiteSecond text-center text-5xl";
   const styleTextAbout = "text-whiteSecond text-2xl font-light";
   const titlePosition = "items-center";
-  const src = "/about";
+  // const src = "/about";
 
   return (
     <>
@@ -72,7 +71,6 @@ export default function Blog() {
         description={blobDescription}
         styleTextTitle={styleTextTitle}
         styleTextAbout={styleTextAbout}
-        // src={src}
         variant="header"
       />
       <List sets={sets} title={sectionTitle} titlePosition={titlePosition} />
@@ -82,7 +80,6 @@ export default function Blog() {
           title={item.title}
           description={item.description}
           img={item.img}
-          // stylePosition={fullBannerPosition}
           animation={visibleExit}
           styleTextTitle={styleTextTitle}
           styleTextAbout={styleTextAbout}

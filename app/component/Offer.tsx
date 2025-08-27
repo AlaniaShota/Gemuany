@@ -8,7 +8,7 @@ import { iphone, iphoneTitle, androidTitle, android, offerNumber, discount, down
 
 const Offer = () => {
   return (
-    <div className="bg-redGemuany lg:my-40 max-sm:my-32 flex lg:flex-row max-sm:flex-col-reverse justify-around items-center lg:h-36 max-sm:gap-6 max-sm:px-4 max-sm:py-6">
+    <div className="bg-redGemuany lg:my-40 max-sm:my-12 flex lg:flex-row max-sm:flex-col-reverse justify-around items-center lg:h-36 max-sm:gap-6 max-sm:px-4 max-sm:py-6">
     <div className="flex lg:flex-row max-sm:flex-row-reverse lg:justify-center max-sm:justify-between lg:items-center max-sm:items-start gap-3 max-sm:w-full max-sm:gap-4">
       <div className="flex flex-row outline outline-offerBorder rounded-md bg-black p-1 max-sm:w-[45%]">
         <Image src={appleImg} alt="iphone" width={20} height={24} />

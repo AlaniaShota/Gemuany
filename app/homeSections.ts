@@ -25,7 +25,7 @@ export const homeSections = [
       styleTextTitle:
         "text-redGemuany lg:text-[96px] max-md:text-[89px] font-bold",
       styleTextAbout:
-        "text-whiteSecond lg:text-[61px] max-sm:text-[46px] font-light",
+        "text-whiteSecond lg:text-[61px] max-sm:text-[43px] font-light",
       variant: "split",
     },
   },

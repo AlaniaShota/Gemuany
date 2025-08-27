@@ -37,7 +37,7 @@ const UserReview = () => (
           {message}
         </label>
       </div>
-      <Button widthStyle="w-1/2 self-start">
+      <Button widthStyle="w-1/2 max-sm:w-full self-start">
         <span>{submit}</span>
       </Button>
     </div>
