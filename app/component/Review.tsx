@@ -46,7 +46,7 @@ const Review: React.FC<ListProps> = ({ review }) => {
                   translateZ: 150,
                   translateX: -1,
                 }}
-                style={{ transformStyle: "preserve-3d" }}
+                // style={{ transformStyle: "preserve-3d" }}
                 className="flex flex-col justify-start flex-wrap items-start mt-14"
               >
                 <h2 className="text-xl text-whiteSecond">{item.title}</h2>

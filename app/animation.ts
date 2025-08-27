@@ -1,4 +1,3 @@
-// app/animation/index.ts
 import { Variants } from "framer-motion";
 
 export const visibleExit: Variants = {
@@ -38,7 +37,6 @@ export const hover = {
   transition: { type: "spring", stiffness: 300, duration: 0.3 },
 };
 
-// Универсальные props для motion.div
 export const motionProps = {
   visibleExit: {
     variants: visibleExit,

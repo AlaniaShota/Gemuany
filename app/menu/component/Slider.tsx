@@ -16,7 +16,11 @@ const sliderData = [
 ];
 
 const Slider = () => {
-  const [emblaRef, embla] = useEmblaCarousel({ loop: true });
+  const [emblaRef, embla] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    duration: 15, // плавная прокрутка (чем выше, тем плавнее)
+  });
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   const autoplay = useCallback(() => {
@@ -25,15 +29,15 @@ const Slider = () => {
 
     const delay =
       sliderData[currentIndex].id === 1 || sliderData[currentIndex].id === 6
-        ? 9500
-        : 8200;
+        ? 6500
+        : 5200;
 
     const id = setTimeout(() => {
       embla?.scrollNext();
     }, delay);
 
     setTimeoutId(id);
-  }, [embla]);
+  }, [embla, timeoutId]);
 
   useEffect(() => {
     if (embla) {
@@ -44,7 +48,7 @@ const Slider = () => {
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [embla]);
+  }, [embla, autoplay, timeoutId]);
 
   return (
     <div className="overflow-hidden w-full h-[493px] max-sm:h-screen my-10" ref={emblaRef}>
@@ -62,7 +66,6 @@ const Slider = () => {
          />
          <div className="absolute inset-0 bg-black bg-opacity-45"></div>
        </div>
-       
         ))}
       </div>
     </div>

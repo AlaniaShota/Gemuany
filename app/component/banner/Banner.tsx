@@ -2,12 +2,12 @@
 
 import { useInView } from "react-intersection-observer";
 import { usePathname } from "next/navigation";
-import { Variants, motion,AnimatePresence } from "framer-motion";
+import { Variants, motion, AnimatePresence } from "framer-motion";
 import { StaticImageData } from "next/image";
 import BannerImg from "./component/BannerImg";
 import BannerText from "./component/BannerText";
 import { BannerPageType, BannerVariant, layoutConfig } from "./bannerConfig";
-import { transactionAnimate, visibleExit } from "@/app/animation";
+import { animationUpDown, transactionAnimate, visibleExit } from "@/app/animation";
 interface BannerProps {
   title: string;
   description: string;
@@ -33,7 +33,7 @@ const Banner: React.FC<BannerProps> = ({
   src,
   readMoreBtn,
   // textAlignClass,
-  variant = "split", // по умолчанию split, как раньше
+  variant = "split",
 }) => {
   const pathname = usePathname();
 
@@ -52,31 +52,32 @@ const Banner: React.FC<BannerProps> = ({
   } = layoutConfig[variant];
 
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
-
+  const animationVariant = pageType === "home" ? visibleExit : animationUpDown;
   return (
-    <AnimatePresence>
     <div className={containerClass}>
-      <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      exit="exit"
-      variants={visibleExit}
-      transition={transactionAnimate}
-      className={textWrapperClass}
-      >
-        <BannerText
-          title={title}
-          description={description}
-          aboutBtn={aboutBtn}
-          pageType={pageType}
-          styleTextTitle={styleTextTitle}
-          styleTextAbout={styleTextAbout}
-          src={src}
-          readMoreBtn={readMoreBtn}
-          text={textAlignClass}
-        />
-      </motion.div>
+      <AnimatePresence>
+        <motion.div
+   ref={ref}
+   initial="hidden"
+   animate={inView ? "visible" : "hidden"}
+   exit="exit"
+   variants={animationVariant}
+   transition={transactionAnimate}
+   className={textWrapperClass}
+        >
+          <BannerText
+            title={title}
+            description={description}
+            aboutBtn={aboutBtn}
+            pageType={pageType}
+            styleTextTitle={styleTextTitle}
+            styleTextAbout={styleTextAbout}
+            src={src}
+            readMoreBtn={readMoreBtn}
+            text={textAlignClass}
+          />
+        </motion.div>
+      </AnimatePresence>
       <BannerImg
         img={img}
         animation={animation}
@@ -86,7 +87,6 @@ const Banner: React.FC<BannerProps> = ({
         overlayClassName={overlayClass}
       />
     </div>
-    </AnimatePresence>
   );
 };
 

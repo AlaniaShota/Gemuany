@@ -35,10 +35,6 @@ export default function About() {
   const styleContactTitle = "text-whiteSecond text-5xl font-bold";
   const styleContactAbout = "text-whiteSecond text-2xl font-light opacity-45";
   const stylePositionMenu = "items-center";
-  // const fullBannerPosition =
-  //   "absolute inset-0 flex flex-col justify-around w-3/6 h-full z-50";
-  // const contentAboutSectionPosition =
-  //   "flex flex-col justify-around w-4/6";
   const src = '/menu'
 
   return (

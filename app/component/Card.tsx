@@ -28,9 +28,9 @@ interface ReviewOrSetsCardProps {
 }
 
 const BurgerCard: React.FC<BurgerCardProps> = ({ data }) => {
-const { ref } = useInView({
-    triggerOnce: true, // Анимация только один раз
-    threshold: 0.5, // 20% элемента должно быть видно
+  const { ref } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
   });
   return (
     <motion.div
@@ -42,9 +42,6 @@ const { ref } = useInView({
       animate="animate"
       exit="exit"
       transition={transactionAnimate}
-      whileHover={hover}
-      
-      // style={{ transformStyle: "preserve-3d" }}
     >
       <div className="absolute lg:-top-32 max-sm:-top-24 left-1/2 transform -translate-x-1/2">
         <Image
@@ -55,13 +52,7 @@ const { ref } = useInView({
           className="rounded-full"
         />
       </div>
-      <div
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        transition={transactionAnimate}
-        whileHover={hover}
-        // style={{ transformStyle: "preserve-3d" }}
+      <motion.div
         className="flex flex-col justify-between items-start w-full"
       >
         <motion.div
@@ -70,7 +61,6 @@ const { ref } = useInView({
           exit="exit"
           transition={transactionAnimate}
           whileHover={hover}
-          // style={{ transformStyle: "preserve-3d" }}
           className="flex flex-col justify-start flex-wrap items-start mt-14"
         >
           <h2 className="text-2xl font-semibold">{data.name}</h2>
@@ -93,7 +83,7 @@ const { ref } = useInView({
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
@@ -124,7 +114,7 @@ const ReviewOrSetsCard: React.FC<ReviewOrSetsCardProps> = ({ data }) => {
           exit="exit"
           transition={transactionAnimate}
           whileHover={hover}
-          style={{ transformStyle: "preserve-3d" }}
+          // style={{ transformStyle: "preserve-3d" }}
           className="flex flex-col justify-start flex-wrap items-start mt-14"
         >
           <h2 className="text-xl max-sm:text-lg text-whiteSecond">

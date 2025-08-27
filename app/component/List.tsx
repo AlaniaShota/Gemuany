@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import { Burger } from "../store/useStore";
 import { transactionAnimate, visibleExit } from "../animation";
@@ -8,6 +8,7 @@ import Card from "./Card";
 import { SetsType } from "../store/useSetsStore";
 import { ReviewType } from "../store/useStoreReview";
 import { useDisableAnimation } from "../useDisableAnimation";
+import { useInView } from "react-intersection-observer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -41,11 +42,11 @@ const List: React.FC<ListProps> = ({
       <AnimatePresence>
         <motion.h1
           ref={ref}
-          // variants={!disableAnimation ? visibleExit : undefined}
-          // initial={!disableAnimation ? "hidden" : false}
-          // animate={!disableAnimation ? "visible" : false}
-          // exit={!disableAnimation ? "exit" : undefined}
-          // transition={!disableAnimation ? transactionAnimate : undefined}
+          variants={!disableAnimation ? visibleExit : undefined}
+          initial={!disableAnimation ? "hidden" : false}
+          animate={!disableAnimation ? "visible" : false}
+          exit={!disableAnimation ? "exit" : undefined}
+          transition={!disableAnimation ? transactionAnimate : undefined}
           className={`${montserrat.className} text-whiteSecond flex flex-col lg:text-4xl max-sm:text-2xl font-semibold`}
         >
           {title}

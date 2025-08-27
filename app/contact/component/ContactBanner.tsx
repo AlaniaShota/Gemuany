@@ -1,7 +1,8 @@
 "use client";
-import imgLocation from "@/public/image 18.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { isMobile } from "react-device-detect";
 import {
   location,
   addressTitle,
@@ -19,8 +20,8 @@ import {
   facebook,
 } from "./constanta";
 import { Montserrat } from "next/font/google";
+import imgLocation from "@/public/image 18.png";
 import { motionProps } from "@/app/animation";
-import { useInView } from "react-intersection-observer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,8 +36,8 @@ const leftData = [
     id: 36,
     title: mediaTitle,
     description: mediaDescription,
-    instagram: instagram,
-    facebook: facebook,
+    instagram,
+    facebook,
   },
 ];
 
@@ -54,73 +55,88 @@ const rightData = [
   },
 ];
 
+const LeftColumn = ({ data }: { data: typeof leftData }) => {
+  return (
+    <div className="w-1/2 max-sm:w-full h-full flex flex-col items-start">
+      {data.map((item) => (
+        <div
+          key={item.id}
+          className={`${montserrat.className} flex flex-col gap-y-4 text-whiteSecond w-full`}
+        >
+          <h1 className="text-2xl max-sm:text-lg font-normal pt-6 max-sm:pt-3">
+            {item.title}
+          </h1>
+          <p className="font-light max-sm:text-base pl-5 max-sm:pl-2">
+            {isMobile ? item.description.slice(0, 30) : item.description}
+          </p>
+          {item.instagram && (
+            <>
+              <p className="font-light text-start pl-5 max-sm:pl-2">
+                {item.instagram}
+              </p>
+              <p className="font-light text-start pl-5 max-sm:pl-2">
+                {item.facebook}
+              </p>
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const RightColumn = ({ data }: { data: typeof rightData }) => {
+  return (
+    <div className="w-1/2 max-sm:w-full flex flex-col items-start">
+      {data.map((item) => (
+        <div
+          key={item.id}
+          className={`${montserrat.className} flex flex-col gap-y-4 text-whiteSecond w-auto`}
+        >
+          <h1 className="text-2xl max-sm:text-lg font-normal pt-6 max-sm:pt-3">
+            {item.title}
+          </h1>
+          <p className="font-light max-sm:text-base pl-5 max-sm:pl-2">
+            {item.description}
+          </p>
+          {item.secondDescription && (
+            <p className="font-light text-start pl-5 max-sm:pl-2">
+              {item.secondDescription}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const ContactBanner = () => {
   const { ref } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
-    <div className="relative flex h-full w-4/5 my-32 mx-auto">
-      <div className="w-full h-full bg-black bg-opacity-50 relative rounded-xl">
+    <div className="relative flex h-full w-4/5 my-32 mx-auto max-sm:w-full max-sm:h-screen">
+      <div className="w-full h-full max-sm:h-screen bg-black bg-opacity-50 relative rounded-xl max-sm:rounded-none">
         <Image
           src={imgLocation}
           alt="location"
-          className="object-cover w-full rounded-xl"
+          className="object-cover w-full max-sm:h-screen rounded-xl max-sm:rounded-none"
         />
       </div>
       <motion.div
-       {...motionProps.visibleExit}
-       ref={ref}
-        className="absolute inset-0 flex flex-col justify-center items-center text-center p-4"
+        {...motionProps.visibleExit}
+        ref={ref}
+        className="absolute inset-0 flex flex-col justify-center items-center max-sm:items-start text-start p-4 max-sm:p-2"
       >
-        <div className="flex flex-col justify-between items-center w-full">
-          <div className="w-2/3 h-full flex flex-col justify-around items-center">
+        <div className="flex flex-col items-center w-full">
+          <div className="w-2/3 max-sm:w-full flex flex-col items-center">
             <h1
               className={`text-4xl text-whiteSecond ${montserrat.className} font-bold w-full text-center`}
             >
               {location}
             </h1>
-            <div className="flex flex-row justify-between items-start w-full h-full">
-              <div className="w-1/2 h-full flex justify-start items-center flex-col">
-                {leftData.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`${montserrat.className} flex flex-col justify-start list-disc gap-y-4  items-start text-whiteSecond w-full h-full`}
-                  >
-                    <h1 className="text-2xl font-normal text-start pt-6">
-                      {item.title}
-                    </h1>
-                    <p className="font-light list-disc text-start pl-5">
-                      {item.description}
-                    </p>
-                    {item.instagram && (
-                      <>
-                        <p className="font-light text-start pl-5">
-                          {item.instagram}
-                        </p>
-                        <p className="font-light text-start pl-5">
-                          {item.facebook}
-                        </p>
-                      </>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div className="w-1/2 flex justify-end items-end flex-col h-auto">
-                {rightData.map((item) => (
-                  <div
-                    key={item.id}
-                    className={`${montserrat.className} flex flex-col justify-start items-start  gap-y-4  text-whiteSecond w-auto h-auto`}
-                  >
-                    <h1 className="text-2xl font-normal pt-6">{item.title}</h1>
-                    <p className="font-light text-start pl-5">
-                      {item.description}
-                    </p>
-                    {item.secondDescription && (
-                      <p className="font-light text-start pl-5">
-                        {item.secondDescription}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-row max-sm:flex-col justify-between w-full">
+              <LeftColumn data={leftData} />
+              <RightColumn data={rightData} />
             </div>
           </div>
         </div>

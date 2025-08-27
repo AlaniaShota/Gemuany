@@ -1,13 +1,12 @@
 import React from "react";
 import { Lobster, Montserrat } from "next/font/google";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Atropos from "atropos/react";
 import "atropos/css";
 import { Button } from "../../Button";
 import { ReadMore } from "../../navigation/ButtonLinks";
 import { useInView } from "react-intersection-observer";
-// import { useDisableAnimation } from "@/app/useDisableAnimation";
-import { transactionAnimate, visibleExit } from "@/app/animation";
+import { transactionAnimate } from "@/app/animation";
 import { BannerPageType, pageTextConfig } from "../bannerConfig";
 import { readMoreBtn } from "@/app/about/component/constanta";
 
@@ -15,6 +14,7 @@ interface BannerTextProps {
   title: string;
   description: string;
   aboutBtn?: string;
+  animation?: Variants;
   pageType: BannerPageType;
   styleTextTitle?: string;
   styleTextAbout?: string;
@@ -34,7 +34,7 @@ const BannerText: React.FC<BannerTextProps> = ({
   styleTextTitle,
   styleTextAbout,
   src,
-  text,
+  text,animation
   // readMoreBtn,
 }) => {
   const { ref } = useInView({ triggerOnce: true, threshold: 1 });
@@ -45,10 +45,11 @@ const BannerText: React.FC<BannerTextProps> = ({
   return (
     <motion.div
       ref={ref}
-      variants={visibleExit}
+      // className={wrapperClassName}
       initial="hidden"
       animate="visible"
       exit="exit"
+      variants={animation}
       transition={transactionAnimate}
       className={`flex flex-col w-full justify-center max-sm:items-center h-full gap-8 z-10`}
     >
