@@ -7,7 +7,11 @@ import { StaticImageData } from "next/image";
 import BannerImg from "./component/BannerImg";
 import BannerText from "./component/BannerText";
 import { BannerPageType, BannerVariant, layoutConfig } from "./bannerConfig";
-import { animationUpDown, transactionAnimate, visibleExit } from "@/app/animation";
+import {
+  animationUpDown,
+  transactionAnimate,
+  visibleExit,
+} from "@/app/animation";
 interface BannerProps {
   title: string;
   description: string;
@@ -57,13 +61,13 @@ const Banner: React.FC<BannerProps> = ({
     <div className={containerClass}>
       <AnimatePresence>
         <motion.div
-   ref={ref}
-   initial="hidden"
-   animate={inView ? "visible" : "hidden"}
-   exit="exit"
-   variants={animationVariant}
-   transition={transactionAnimate}
-   className={textWrapperClass}
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          exit="exit"
+          variants={animationVariant}
+          transition={transactionAnimate}
+          className={textWrapperClass}
         >
           <BannerText
             title={title}

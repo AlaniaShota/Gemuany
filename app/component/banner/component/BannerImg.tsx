@@ -22,11 +22,6 @@ const BannerImg: React.FC<BannerImgProps> = ({
   return (
     <motion.div
       className={wrapperClassName}
-      // initial="hidden"
-      // animate="visible"
-      // exit="exit"
-      // variants={visibleExit}
-      // transition={{ ...{ type: "spring", duration: 0.4, stiffness: 300 } }}
     >
       <Image
         src={img}
