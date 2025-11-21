@@ -6,6 +6,7 @@ import Link from "next/link";
 
 interface LinksProp {
   src?: string;
+  stylePosition?: string;
   readMoreBtn: string;
 }
 

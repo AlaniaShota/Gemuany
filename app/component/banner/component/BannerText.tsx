@@ -19,6 +19,7 @@ interface BannerTextProps {
   styleTextTitle?: string;
   styleTextAbout?: string;
   src?: string;
+  stylePosition?: string;
   text?: string;
   readMoreBtn?: string;
 }

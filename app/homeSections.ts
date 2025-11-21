@@ -88,4 +88,4 @@ export const homeSections = [
     type: "userReview",
     props: {},
   },
-] as const;
+];
