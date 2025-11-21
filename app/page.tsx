@@ -35,7 +35,7 @@ export default function Home() {
               variant: "split" | "full";
               readMoreBtn?: string;
               src?: string;
-              stylePosition?: string;
+              stylePosition?: 'left' | 'right' | 'center' | string;
             };
 
             return (
@@ -50,7 +50,7 @@ export default function Home() {
                 variant={bannerProps.variant}
                 readMoreBtn={bannerProps.readMoreBtn}
                 src={bannerProps.src}
-                stylePosition={bannerProps.stylePosition}
+     
               />
             );
           }

@@ -22,6 +22,7 @@ interface BannerProps {
   styleTextAbout?: string;
   src?: string;
   readMoreBtn?: string;
+  stylePosition?: 'left' | 'right' | 'center' | string;
   variant?: BannerVariant; // "split" | "full"
   text?: string;
 }
